@@ -1,2 +1,2 @@
 # vut-fit-ims2
-Project for IMS (Modelling and Simulation) class VUT/BUT FIT 2 - ...
+IMS project 2021 - VUT FIT
