@@ -16,46 +16,50 @@ float rand_mod_100()
   return static_cast<int>((float)rand()/4857.0f) % 100;
 }
 
-void PerlinNoise2D(int nWidth, int nHeight, float* fSeed, int nOctaves, float fBias, float* fOutput)
-	{
-		// Used 1D Perlin Noise
-		for (int x = 0; x < nWidth; x++)
-			for (int y = 0; y < nHeight; y++)
-			{				
-				float fNoise = 0.0f;
-				float fScaleAcc = 0.0f;
-				float fScale = 1.0f;
+void PerlinNoise2D(int nWidth, 
+                  int nHeight, 
+                  float* fSeed, 
+                  int nOctaves, 
+                  float fBias, 
+                  float* fOutput)
+{
+	// Used 1D Perlin Noise
+	for (int x = 0; x < nWidth; x++)
+		for (int y = 0; y < nHeight; y++)
+		{				
+			float fNoise = 0.0f;
+			float fScaleAcc = 0.0f;
+			float fScale = 1.0f;
 
-				for (int o = 0; o < nOctaves; o++)
-				{
-					int nPitch = nWidth >> o;
-					int nSampleX1 = (x / nPitch) * nPitch;
-					int nSampleY1 = (y / nPitch) * nPitch;
+			for (int o = 0; o < nOctaves; o++)
+			{
+				int nPitch = nWidth >> o;
+				int nSampleX1 = (x / nPitch) * nPitch;
+				int nSampleY1 = (y / nPitch) * nPitch;
 					
-					int nSampleX2 = (nSampleX1 + nPitch) % nWidth;					
-					int nSampleY2 = (nSampleY1 + nPitch) % nWidth;
+				int nSampleX2 = (nSampleX1 + nPitch) % nWidth;					
+				int nSampleY2 = (nSampleY1 + nPitch) % nWidth;
 
-					float fBlendX = (float)(x - nSampleX1) / (float)nPitch;
-					float fBlendY = (float)(y - nSampleY1) / (float)nPitch;
+				float fBlendX = (float)(x - nSampleX1) / (float)nPitch;
+				float fBlendY = (float)(y - nSampleY1) / (float)nPitch;
 
-					float fSampleT = (1.0f - fBlendX) * fSeed[nSampleY1 * nWidth + nSampleX1] + fBlendX * fSeed[nSampleY1 * nWidth + nSampleX2];
-					float fSampleB = (1.0f - fBlendX) * fSeed[nSampleY2 * nWidth + nSampleX1] + fBlendX * fSeed[nSampleY2 * nWidth + nSampleX2];
+				float fSampleT = (1.0f - fBlendX) * fSeed[nSampleY1 * nWidth + nSampleX1] + fBlendX * fSeed[nSampleY1 * nWidth + nSampleX2];
+				float fSampleB = (1.0f - fBlendX) * fSeed[nSampleY2 * nWidth + nSampleX1] + fBlendX * fSeed[nSampleY2 * nWidth + nSampleX2];
 
-					fScaleAcc += fScale;
-					fNoise += (fBlendY * (fSampleB - fSampleT) + fSampleT) * fScale;
-					fScale = fScale / fBias;
-				}
-
-				// Scale to seed range
-				fOutput[y * nWidth + x] = fNoise / fScaleAcc;
+				fScaleAcc += fScale;
+				fNoise += (fBlendY * (fSampleB - fSampleT) + fSampleT) * fScale;
+				fScale = fScale / fBias;
 			}
-	
+
+			// Scale to seed range
+			fOutput[y * nWidth + x] = fNoise / fScaleAcc;
+		}
 	}
 
 /**
  * @brief:  function for generating cell of given type into map or the map itself; 
  *          to generate empty map --> _seed = 0.0f or type = default);
- *          to empty already generated map of given size --> _seed = 999999.0f and type = deafault;
+ *          to empty already generated map of given size --> _seed = 999999.0f and type = default;
  * 
  * @size: sizeXsize map matrix to generate; needs declaration of size even if its generated; can enlarge the map (not shrink);
  * @type: which seed to "plant" 
