@@ -1,6 +1,6 @@
 #pragma once
 
-#include "cell.hpp"
+#include "cell.cpp"
 
 // Map global variables
 std::vector<std::vector<Cell>>  map,
@@ -63,7 +63,10 @@ void PerlinNoise2D(int nWidth, int nHeight, float* fSeed, int nOctaves, float fB
  * 
  */
 //TODO: FOR NOW CELLS ARE TYPE OF CHAR!!! THEY NEED THE TYPE OF CELL AND SOME GOOD ATRIBUTE FILLING BOI!!!
-std::vector<std::string> seed(std::vector<std::string> mapChars, int64_t size = MAX_SIZE, char type = '.', float _seed = 40000.0f)
+std::vector<std::string> seed(std::vector<std::string> mapChars, 
+                              int64_t size = MAX_SIZE, 
+                              char type = '.', 
+                              float _seed = 40000.0f)
 {
   float *noise_seed = new float[size*size];
   float *out_seed   = new float[size*size];
@@ -166,7 +169,10 @@ std::vector<std::string> seed(std::vector<std::string> mapChars, int64_t size = 
 
 namespace Map {
 
-  void loadMap(std::vector<std::vector<Cell>>& map, const std::vector<std::string>& mapChars, int64_t h, int64_t w)
+  void loadMap(std::vector<std::vector<Cell>>& map, 
+              const std::vector<std::string>& mapChars, 
+              int64_t h, 
+              int64_t w)
   {
     for (int64_t i = 0; i < h; ++i){
       std::vector<Cell> vec {};
@@ -206,7 +212,8 @@ namespace Map {
     }
   }
 
-  void printMap(std::vector<std::vector<Cell>>& map) {
+  void printMap(std::vector<std::vector<Cell>>& map)
+  {
     for (auto& line : map)
     {
       for (auto& c : line)
@@ -341,8 +348,11 @@ namespace Map {
     return 0;
   }
 
-  void igniteCellRadius(std::vector<std::vector<Cell>>& map, int64_t i, int64_t j, int64_t radius = 3) {
-    
+  void igniteCellRadius(std::vector<std::vector<Cell>>& map, 
+                        int64_t i, 
+                        int64_t j, 
+                        int64_t radius = 3)
+  {  
     for (auto x = (i - radius); x <= (i + radius); ++x) 
     {
       for (auto y = (j - radius); y <= (j + radius); ++y)

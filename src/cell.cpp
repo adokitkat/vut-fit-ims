@@ -1,6 +1,6 @@
 #pragma once
 
-#include "etc.hpp"
+#include "etc.cpp"
 
 #define WATER -7.0
 #define DIRT 0.0
@@ -51,13 +51,23 @@ public:
 
 Cell::~Cell() {}
 
-Cell::Cell(int64_t x, int64_t y)
+Cell::Cell(int64_t x, 
+          int64_t y)
 {
   this->x = x;
   this->y = y;
 }
 
-Cell::Cell(int64_t x, int64_t y, bool active, double neigh_prob, double height, double flammability, int64_t fuel_amount, int64_t burning_tick, Status status, CellType type)
+Cell::Cell(int64_t x, 
+          int64_t y, 
+          bool active, 
+          double neigh_prob, 
+          double height, 
+          double flammability, 
+          int64_t fuel_amount, 
+          int64_t burning_tick, 
+          Status status, 
+          CellType type)
 {
   this->x = x;
   this->y = y;

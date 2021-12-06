@@ -16,6 +16,8 @@
 
 // Argument loading
 #include <getopt.h>
+// GLUT
+#include <GL/glut.h>
 
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) || defined(__WIN32__) // Windows
     #define NEWLINE "\r\n"
@@ -30,6 +32,26 @@ enum struct Wind
   N, NW, W, SW, S, SE, E, NE
 };
 
+// Global var
+Wind wind { Wind::None };
+
+void parseWindDir(std::string wind_dir)
+{
+
+  if (wind_dir != "")
+  {
+    if      (wind_dir == "N"  or wind_dir == "n")  { wind = Wind::N;}
+    else if (wind_dir == "NW" or wind_dir == "nw") { wind = Wind::NW;}
+    else if (wind_dir == "W"  or wind_dir == "w")  { wind = Wind::W;}
+    else if (wind_dir == "SW" or wind_dir == "sw") { wind = Wind::SW;}
+    else if (wind_dir == "S"  or wind_dir == "s")  { wind = Wind::S;}
+    else if (wind_dir == "SE" or wind_dir == "se") { wind = Wind::SE;}
+    else if (wind_dir == "E"  or wind_dir == "e")  { wind = Wind::E;}
+    else if (wind_dir == "NE" or wind_dir == "ne") { wind = Wind::NE;}
+
+  }
+}
+
 // Global variabiable map for callback GLUT function
 int64_t MAX_SIZE {1000},
         h {0},
@@ -39,13 +61,26 @@ int64_t MAX_SIZE {1000},
         big_wind_global {3}, // Wind speed treshold
         tree_burning_time {162},
         brush_burning_time {100};
-Wind wind { Wind::None };
 
 // Mouse events
 bool  leftMouseButtonDown { false },
       rightMouseButtonDown { false };
 int64_t mouseXPos {0},
         mouseYPos {0};
+
+void mouse(int button, int state, int x, int y)
+{
+    // Save the button state
+    if (button == GLUT_LEFT_BUTTON)
+      { leftMouseButtonDown = (state == GLUT_DOWN); }
+
+    else if (button == GLUT_RIGHT_BUTTON)
+      { rightMouseButtonDown = (state == GLUT_DOWN); }
+
+    // Save the mouse position
+    mouseXPos = (int64_t)y;
+    mouseYPos = (int64_t)x;
+}
 
 // Logging
 bool logging {false};
@@ -67,6 +102,22 @@ int64_t log_period {25},
         not_burning_brush {0},
         burning_brush {0},
         burned_brush {0};
+
+std::ofstream initLog(std::string filename)
+{
+  std::ofstream outfile;
+  outfile.open(filename, std::ofstream::out | std::ios_base::trunc); // append instead of overwrite
+  outfile << "";
+  return outfile;
+}
+
+void logAdd(std::ofstream outfile, std::string out)
+{
+  if (outfile.is_open())
+  {
+    outfile << out;
+  }
+}
 
 // Enumerate implementation
 template <typename T,
@@ -96,16 +147,27 @@ void showHelp()
 {
   std::cout
     << "Usage:" << NEWLINE
-    << "  ./ims [-h|--help] [-g|--gui]" << NEWLINE
+    << "  ./ims [-h|--help] [-g|--gui] " << NEWLINE
     << NEWLINE
     << "Flags:" << NEWLINE
     << "  -h, --help\t" << "Show help" << NEWLINE
-    << "  -g, --gui\t"  << "Verbose output switch" << std::endl
+    << "  -g, --gui\t"  << "GUI version" << NEWLINE
+    << "  -x X -y Y\t" << "Set point of fire origin" << NEWLINE
+    << "  -i X, --intensity X\t" << "Fire intensity [1, 2, 3]" << NEWLINE
+    << "  -l, --log\t" << "Enable logging" << NEWLINE
+    << "  -w X, --wind X\t" << "Wind direction [None, N, NW, W, SW, S, SE, E, NE]" << std::endl
   ;
 }
 
 // Argument parsing
-void parseArgs(int& argc, char* argv[], bool& gui, bool& show_help, bool& load_map, int64_t& x, int64_t& y, std::string& wind_dir)
+void parseArgs(int& argc, 
+              char* argv[], 
+              bool& gui, 
+              bool& show_help, 
+              bool& load_map, 
+              int64_t& x, 
+              int64_t& y, 
+              std::string& wind_dir)
 {  
   const struct option long_options[] =
   {
@@ -200,22 +262,5 @@ void parseArgs(int& argc, char* argv[], bool& gui, bool& show_help, bool& load_m
       default:
         break;
     }
-  }
-}
-
-void parseWindDir(std::string wind_dir)
-{
-
-  if (wind_dir != "")
-  {
-    if      (wind_dir == "N"  or wind_dir == "n")  { wind = Wind::N;}
-    else if (wind_dir == "NW" or wind_dir == "nw") { wind = Wind::NW;}
-    else if (wind_dir == "W"  or wind_dir == "w")  { wind = Wind::W;}
-    else if (wind_dir == "SW" or wind_dir == "sw") { wind = Wind::SW;}
-    else if (wind_dir == "S"  or wind_dir == "s")  { wind = Wind::S;}
-    else if (wind_dir == "SE" or wind_dir == "se") { wind = Wind::SE;}
-    else if (wind_dir == "E"  or wind_dir == "e")  { wind = Wind::E;}
-    else if (wind_dir == "NE" or wind_dir == "ne") { wind = Wind::NE;}
-
   }
 }
