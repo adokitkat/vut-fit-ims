@@ -240,9 +240,9 @@ std::vector<std::string> seed4(std::vector<std::string> mapChars,
   float *out_seed   = new float[size*size];
 
   for (int i = 0; i < size * size; i++)
-    { noise_seed[i] = pseudo_rand(); }
+    { noise_seed[i] = pseudo_rand()*1.25f; /*std::cout << noise_seed[i] << '|';*/}
 
-  PerlinNoise2D(size, size, noise_seed, 9, 1.35f, out_seed);
+  PerlinNoise2D(size, size, noise_seed, 9, 1.3f, out_seed);
 
   for (int i = 0; i < people;)
   {
@@ -279,6 +279,9 @@ std::vector<std::string> seed4(std::vector<std::string> mapChars,
   {
     mapChars.push_back(map1D.substr(i*size, size));
   }
+
+  delete [] noise_seed;
+  delete [] out_seed;
 
   return mapChars;
 }

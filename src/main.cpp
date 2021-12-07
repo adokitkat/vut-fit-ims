@@ -300,8 +300,8 @@ int main (int argc, char *argv[])
 
   srand(time(NULL)); // initialize random function
   std::vector<std::string> mapChars;
-  mapChars = seed4(mapChars, 400, 'N', 46000.0f, 10000); 
-  //mapChars = seed4(mapChars, 958, 'N', 46000.0f, 22050); 
+  mapChars = seed4(mapChars, 479, 'N', 47000.0f, 11025); 
+  //mapChars = seed4(mapChars, 958 , 'N', 38000.0f, 22050); 
   //mapChars = seed4(mapChars, MAX_SIZE, 'N', 46000.0f, 500000); 
   //TODO: sem hodit po generovani nejake ohnisko v danom bode and watch the world burn
 
