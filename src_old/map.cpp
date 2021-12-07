@@ -77,7 +77,7 @@ std::vector<std::string> seed(std::vector<std::string> mapChars,
 
   for (int i = 0; i < size * size; i++)
     { noise_seed[i] = pseudo_rand(); }
-  PerlinNoise2D(size, size, noise_seed, 4, 0.4f, out_seed);
+  PerlinNoise2D(size, size, noise_seed, 6, 0.4f, out_seed);
   
   //for (auto x : out_seed) {}
   for(auto y = 0; y < size; y++)
@@ -124,166 +124,7 @@ std::vector<std::string> seed(std::vector<std::string> mapChars,
   return mapChars;
 }
 
-std::vector<std::string> seed2(std::vector<std::string> mapChars, 
-                              int64_t size = MAX_SIZE, 
-                              char type = '.', 
-                              int people = 1000000) 
-{
-
-  int max = size * size;
-  std::string map1D(max, '.');
-  int x;
-
-  for (int i = 0; i < people;)
-  {
-    x = rand() % max;
-    if (map1D[x] != '.')
-    {
-      continue;
-    } else {
-      map1D[x] = type;
-      ++i;
-    }
-    
-  }
-  
-  for (int i = 0; i < size; i++)
-  {
-    mapChars.push_back(map1D.substr(i*size, size));
-  }
-
-  return mapChars;
-}
-
-std::vector<std::string> seed3(std::vector<std::string> mapChars, 
-                              int64_t size = MAX_SIZE, 
-                              char type = '.', 
-                              float _seed = 40000.0f,
-                              int people = 1000000)
-{
-  float *noise_seed = new float[size*size];
-  float *out_seed   = new float[size*size];
-
-  for (int i = 0; i < size * size; i++)
-    { noise_seed[i] = pseudo_rand(); }
-  PerlinNoise2D(size, size, noise_seed, 4, 0.4f, out_seed);
-  
-  int i = 0;
-
-  for(auto y = 0; y < size; y++)
-  {
-    std::string row;
-    if (y < (int64_t)mapChars.size()) { row = mapChars[y]; }
-    for(auto x = 0; x < size; x++)
-    {
-
-      if( (int)(out_seed[y * size + x] * 0.5f) < _seed && pseudo_rand() < _seed + 10000.0f)
-      {
-       
-
-        if(x < (int64_t)row.size())
-        {
-          if (i >= people) row.push_back('.');
-          row[x] = type; 
-          i++;
-          std::cout << "halo" << NEWLINE;
-          continue;
-        }
-
-        else
-        {
-          if (i >= people) row.push_back('.');
-          row.push_back(type); 
-          i++;
-          continue;
-        }
-        
-      } 
-      
-        if(x < (int64_t)row.size())
-        {
-          continue;
-        }
-        else
-        {
-          row.push_back('.'); 
-        }
-      
-    }
-
-    if(y < (int64_t)mapChars.size()){
-      mapChars[y] = row;
-    }
-    else
-    {
-      mapChars.push_back(row);
-    }
-
-  }
-  delete(noise_seed);
-  delete(out_seed);
-  return mapChars;
-}
-
-std::vector<std::string> seed4(std::vector<std::string> mapChars, 
-                              int64_t size = MAX_SIZE, 
-                              char type = '.',
-                              float _seed = 40000.0f, 
-                              int people = 1000000) 
-{
-
-  int max = size * size;
-  std::string map1D(max, '.');
-  int x;
-
-  float *noise_seed = new float[size*size];
-  float *out_seed   = new float[size*size];
-
-  for (int i = 0; i < size * size; i++)
-    { noise_seed[i] = pseudo_rand(); }
-
-  PerlinNoise2D(size, size, noise_seed, 9, 1.35f, out_seed);
-
-  for (int i = 0; i < people;)
-  {
-    //std::cout << "-";
-    x = rand() % max;
-    if (map1D[x] != '.')
-    {
-      continue;
-    } else {
-      //map1D[x] = type;
-      //++i;
-      
-      if( ((int)(out_seed[x] * 0.5f) > _seed && pseudo_rand() > _seed - 10000.0f))
-      {
-        //std::cout << "O";
-        map1D[x] = type;
-        ++i;
-      }
-      
-    }
-    
-  }
-/*
-  for(auto x = 0; x < map1D.size(); x++)
-  {
-    if (map1D[x] == '.') {
-      map1D[x] = 'N';
-    } else {
-      map1D[x] = '.';
-    }
-  }
-*/
-  for (int i = 0; i < size; i++)
-  {
-    mapChars.push_back(map1D.substr(i*size, size));
-  }
-
-  return mapChars;
-}
-
-std::string getWindDirection()
+ std::string getWindDirection()
   {
     switch (wind)
     {
@@ -343,67 +184,27 @@ namespace Map {
         vec.push_back(Cell(i, j));
         switch (mapChars[i][j])
         {
-          // Vaccinated
-          case 'V':
-            vec[j].status = Status::HEALTHY;
-            vec[j].type = CellType::Vaccinated;
-            vec[j].active = true;
-            break;
-
           case 'X':
-            vec[j].status = Status::INFECTED;
-            vec[j].type = CellType::Vaccinated; 
-            vec[j].active = true;
-            break;
-
-          case 'A':
-            vec[j].status = Status::DEAD;
-            vec[j].type = CellType::Vaccinated;
-            vec[j].active = false;
-            break;
-
-          // Partially vaccinated
-          case 'P':
-            vec[j].status = Status::HEALTHY;
-            vec[j].type = CellType::PartiallyVaccinated;
+            vec[j].status = Status::BURNING;
+            vec[j].type = CellType::Tree; // unknown ??
             vec[j].active = true;
             break;
 
           case 'Y':
-            vec[j].status = Status::INFECTED;
-            vec[j].type = CellType::PartiallyVaccinated; 
+            vec[j].status = Status::NOT_BURNING;
+            vec[j].type = CellType::Tree;
             vec[j].active = true;
             break;
           
-          case 'B':
-            vec[j].status = Status::DEAD;
-            vec[j].type = CellType::Vaccinated;
-            vec[j].active = false;
-            break;
-
-          // Non-vaccinated
-          case 'N':
-            vec[j].status = Status::HEALTHY;
-            vec[j].type = CellType::PartiallyVaccinated;
+          case '@':
+            vec[j].status = Status::NOT_BURNING;
+            vec[j].type = CellType::Brush;
             vec[j].active = true;
             break;
 
-          case 'Z':
-            vec[j].status = Status::INFECTED;
-            vec[j].type = CellType::NonVaccinated;
-            vec[j].active = true;
-            break;
-
-          case 'C':
-            vec[j].status = Status::DEAD;
-            vec[j].type = CellType::NonVaccinated;
-            vec[j].active = false;
-            break; 
-          
-          // Etc
           case '.':
-            vec[j].status = Status::NONE;
-            vec[j].type = CellType::Empty;
+            vec[j].status = Status::NOT_BURNING;
+            vec[j].type = CellType::Dirt;
             vec[j].active = false;
             break;
 
@@ -441,7 +242,6 @@ namespace Map {
         if (map[i][j].active)
         {
           switch(map[i][j].status) {
-            /*
             case Status::BURNING:
               if (map[i][j].type == CellType::Tree)
               {
@@ -508,7 +308,7 @@ namespace Map {
               else if (map[i][j].type == CellType::Brush)
                 { ++burned_brush; }
               break;
-            */
+
             default:
               break;
           }
@@ -563,8 +363,8 @@ namespace Map {
       {
         if (x >= 0 and x < h and y >= 0 and y < w)
         {
-          if (map[x][y].status == Status::HEALTHY or map[x][y].status == Status::RETRIEVED)
-            { map[x][y].status = Status::INFECTED; }
+          if (map[x][y].status == Status::NOT_BURNING)
+            { map[x][y].status = Status::BURNING; }
         }
       }
     }

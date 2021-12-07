@@ -103,12 +103,11 @@ int updateCell(const std::vector<std::vector<Cell>>& map,
 
           switch (map[x][y].status) // Neighbor status
           {
-            /*
-            case Status::HEALTHY:
+            case Status::NOT_BURNING:
               //map[i][j] ; // Current Cell
               break;
             
-            case Status::INFECTED:
+            case Status::BURNING:
               
               switch(map[i][j].type) { // My type
                 case CellType::Tree:  // My type == Tree
@@ -158,9 +157,9 @@ int updateCell(const std::vector<std::vector<Cell>>& map,
 
               break;
 
-            case Status::DEAD:
+            case Status::BURNED:
               break;
-            */
+            
             default:
               break;
           }
@@ -208,61 +207,32 @@ void display()
     for (auto [j, c]: enumerate(line))
     {
       switch(c.status) {
-
-        case Status::NONE:
-          glColor3f(1.0f, 1.0f, 1.0f);
-          break;
-        
-        case Status::HEALTHY:
-          if (c.type == CellType::Vaccinated) {
+        case Status::NOT_BURNING:
+          if (c.type == CellType::Tree) {
             // light green
             glColor3f(0.0f, 0.8f, 0.0f);
           }
-          else if (c.type == CellType::PartiallyVaccinated) {
-            // darker green 
-            glColor3f(0.2f, 0.8f, 0.2f);
-          }
-          else if (c.type == CellType::NonVaccinated) {
+          else if (c.type == CellType::Brush) {
             // dark green 
             glColor3f(0.4f, 0.8f, 0.4f);
           }
+          else if (c.type == CellType::Dirt) {
+            // brown
+            glColor3f(0.7f, 0.6f, 0.4f);
+          }
+          
           break;
 
-        case Status::INFECTED:
-          if (c.type == CellType::Vaccinated) {
-            // light 
-            glColor3f(0.8f, 0.0f, 0.0f);
-          }
-          else if (c.type == CellType::PartiallyVaccinated) {
-            // darker
-            glColor3f(0.8f, 0.2f, 0.2f);
-          }
-          else if (c.type == CellType::NonVaccinated) {
-            // dark
-            glColor3f(0.8f, 0.4f, 0.4f);
-          }
+        case Status::BURNING:
+          // red
+          glColor3f(0.8f, 0.0f, 0.0f);
           break;
 
-        case Status::RETRIEVED:
-          if (c.type == CellType::Vaccinated) {
-            // light 
-            glColor3f(0.0f, 0.0f, 0.8f);
-          }
-          else if (c.type == CellType::PartiallyVaccinated) {
-            // darker
-            glColor3f(0.2f, 0.2f, 0.8f);
-          }
-          else if (c.type == CellType::NonVaccinated) {
-            // dark
-            glColor3f(0.4f, 0.4f, 0.8f);
-          }
-          break;
-
-        case Status::DEAD:
+        case Status::BURNED:
           // gray
           glColor3f(0.1f, 0.1f, 0.1f);
           break;
-
+        
         default:
           break;
       }
@@ -300,19 +270,17 @@ int main (int argc, char *argv[])
 
   srand(time(NULL)); // initialize random function
   std::vector<std::string> mapChars;
-  mapChars = seed4(mapChars, 400, 'N', 46000.0f, 10000); 
-  //mapChars = seed4(mapChars, 958, 'N', 46000.0f, 22050); 
-  //mapChars = seed4(mapChars, MAX_SIZE, 'N', 46000.0f, 500000); 
+  mapChars = seed(mapChars, MAX_SIZE, '@', 40000.0f);
+  mapChars = seed(mapChars, MAX_SIZE, 'Y', 52000.0f); // seed (40000,55000)
   //TODO: sem hodit po generovani nejake ohnisko v danom bode and watch the world burn
 
-  //if (wildfire_start_x == -1) { wildfire_start_x = MAX_SIZE/2; }
-  //if (wildfire_start_y == -1) { wildfire_start_y = MAX_SIZE/2; }
+  if (wildfire_start_x == -1) { wildfire_start_x = MAX_SIZE/2; }
+  if (wildfire_start_y == -1) { wildfire_start_y = MAX_SIZE/2; }
 
   h = mapChars.size();
   w = mapChars[0].size();
   
   // Start wildfire
-  /*
   for (auto x = (wildfire_start_x - 2); x <= (wildfire_start_x + 2); ++x) 
   {
     for (auto y = (wildfire_start_y - 2); y <= (wildfire_start_y + 2); ++y)
@@ -327,7 +295,6 @@ int main (int argc, char *argv[])
       }
     }
   }
-  */
 
   
   if (logging)

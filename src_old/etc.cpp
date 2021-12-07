@@ -153,7 +153,7 @@ void showHelp()
     << "  -h, --help\t" << "Show help" << NEWLINE
     << "  -g, --gui\t"  << "GUI version" << NEWLINE
     << "  -x X -y Y\t" << "Set point of fire origin" << NEWLINE
-    << "  -i X, --intensity X\t" << "Wind intensity [1, 2, 3]" << NEWLINE
+    << "  -i X, --intensity X\t" << "Fire intensity [1, 2, 3]" << NEWLINE
     << "  -l, --log\t" << "Enable logging" << NEWLINE
     << "  -w X, --wind X\t" << "Wind direction [None, N, NW, W, SW, S, SE, E, NE]" << std::endl
   ;

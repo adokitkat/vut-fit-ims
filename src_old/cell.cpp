@@ -9,19 +9,17 @@
 
 enum struct Status 
 {
-  NONE,
-  HEALTHY,
-  INFECTED,
-  RETRIEVED,
-  DEAD
+  NOT_BURNING,
+  BURNING,
+  BURNED
 };
 
 enum struct CellType 
 {
-  Empty,
-  NonVaccinated,
-  PartiallyVaccinated,
-  Vaccinated
+  Unknown,
+  Dirt,
+  Tree,
+  Brush
 };
 
 class Cell {
@@ -30,19 +28,21 @@ private:
 public:
   Cell();
   Cell(int64_t, int64_t);
-  Cell(int64_t, int64_t, bool, double, int64_t, int64_t, Status, CellType);
+  Cell(int64_t, int64_t, bool, double, double, double, int64_t, int64_t, Status, CellType);
   ~Cell();
 
   int64_t x = 0;
   int64_t y = 0;
   bool    active       = false; // empty space or filled with fuel
+  double  neigh_prob   = 0.0;
+  double  height       = 0.0; // height of the cell imported from altitude map
   double  flammability = 0.0;
 
   int64_t fuel_amount  = 0;
   int64_t burning_tick = 0;
 
-  Status status = Status::HEALTHY;
-  CellType type = CellType::NonVaccinated;
+  Status status = Status::NOT_BURNING;
+  CellType type = CellType::Unknown;
 
   char cellStatusChar();
 
@@ -61,6 +61,8 @@ Cell::Cell(int64_t x,
 Cell::Cell(int64_t x, 
           int64_t y, 
           bool active, 
+          double neigh_prob, 
+          double height, 
           double flammability, 
           int64_t fuel_amount, 
           int64_t burning_tick, 
@@ -70,6 +72,8 @@ Cell::Cell(int64_t x,
   this->x = x;
   this->y = y;
   this->active = active;
+  this->neigh_prob = neigh_prob;
+  this->height = height;
   this->flammability = flammability;
   this->fuel_amount = fuel_amount;
   this->burning_tick = burning_tick;
@@ -77,36 +81,32 @@ Cell::Cell(int64_t x,
   this->type = type;
 }
 
+
+
 char Cell::cellStatusChar() {
   switch (this->type)
   {
-    case CellType::Vaccinated:
-      if (this->status == Status::HEALTHY 
-          or this->status == Status::RETRIEVED) { return 'V';}
-      else if (this->status == Status::INFECTED) { return 'X';}
-      else if (this->status == Status::DEAD) { return 'A';}
+    case CellType::Tree:
+      if (this->status == Status::NOT_BURNING) { return 'Y';}
+      else if (this->status == Status::BURNING) { return 'X';}
       break;
     
-    case CellType::PartiallyVaccinated:
-      if (this->status == Status::HEALTHY 
-          or this->status == Status::RETRIEVED) { return 'P';}
-      else if (this->status == Status::INFECTED) { return 'Y';}
-      else if (this->status == Status::DEAD) { return 'B';}
+    case CellType::Brush:
+      if (this->status == Status::NOT_BURNING) { return '@';}
+      else if (this->status == Status::BURNING) { return 'X';}
       break;
 
-    case CellType::NonVaccinated:
-      if (this->status == Status::HEALTHY 
-          or this->status == Status::RETRIEVED) { return 'N';}
-      else if (this->status == Status::INFECTED) { return 'Z';}
-      else if (this->status == Status::DEAD) { return 'C';}
+    case CellType::Unknown:
+      if (this->status == Status::NOT_BURNING) { return 'U';}
+      else if (this->status == Status::BURNING) { return 'X';}
       break;
 
-    case CellType::Empty:
+    case CellType::Dirt:
       return '.';
       break;
     
     default:
-      return 'E';
+      return 'Z';
       break;
   }
   return 'E';
