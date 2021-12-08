@@ -11,9 +11,14 @@ float pseudo_rand()
   return (float)rand()/13376.9f;  
 }
 
-float rand_mod_100()
+int rand_mod_100()
 {
-  return static_cast<int>((float)rand()/4857.0f) % 100;
+  return static_cast<int>((double)rand()/4857.0f) % 100;
+}
+
+int rand_mod(int mod)
+{
+  return static_cast<int>((double)rand()/4857.0f) % mod;
 }
 
 void PerlinNoise2D(int nWidth, 
@@ -230,11 +235,13 @@ std::vector<std::string> seed4(std::vector<std::string> mapChars,
                               float _seed = 40000.0f, 
                               int people = 1000000,
                               int vaxd_percent = 40,
-                              int par_vaxd_percent = 20) 
+                              int par_vaxd_percent = 20,
+                              float infected_percent = 0.4f) 
 {
 
   int vaxd = (people/100)*vaxd_percent;
   int par_vaxd = (people/100)*par_vaxd_percent;
+  int infected = static_cast<int>((people/100)*infected_percent);
 
   int max = size * size;
   std::string map1D(max, '.');
@@ -264,6 +271,7 @@ std::vector<std::string> seed4(std::vector<std::string> mapChars,
         //std::cout << "O";
         map1D[x] = 'V';
         ++i;
+        //++vaccinated;
       }
       
     }
@@ -286,13 +294,37 @@ std::vector<std::string> seed4(std::vector<std::string> mapChars,
         //std::cout << "O";
         map1D[x] = 'P';
         ++i;
+        //++partially_vaccinated;
       }
       
     }
 
   }
 
-  for (int i = 0; i < (people - vaxd - par_vaxd);)
+  for (int i = 0; i < infected;)
+  {
+    //std::cout << "-";
+    x = rand() % max;
+    if (map1D[x] != '.')
+    {
+      continue;
+    } else {
+      //map1D[x] = type;
+      //++i;
+      
+      if( ((int)(out_seed[x] * 0.5f) > _seed && pseudo_rand() > _seed - 10000.0f))
+      {
+        //std::cout << "O";
+        map1D[x] = 'Z';
+        ++i;
+        //++nonvaccinated;
+      }
+      
+    }
+
+  }
+
+  for (int i = 0; i < (people - vaxd - par_vaxd - infected);)
   {
     //std::cout << "-";
     x = rand() % max;
@@ -308,23 +340,15 @@ std::vector<std::string> seed4(std::vector<std::string> mapChars,
         //std::cout << "O";
         map1D[x] = 'N';
         ++i;
+        //++nonvaccinated;
       }
       
     }
 
   }
 
-  map1D[500000] = 'Z';
-/*
-  for(auto x = 0; x < map1D.size(); x++)
-  {
-    if (map1D[x] == '.') {
-      map1D[x] = 'N';
-    } else {
-      map1D[x] = '.';
-    }
-  }
-*/
+//  map1D[500000] = 'Z';
+
   for (int i = 0; i < size; i++)
   {
     mapChars.push_back(map1D.substr(i*size, size));
@@ -383,14 +407,14 @@ namespace Map {
           
           case 'B':
             vec[j].status = Status::DEAD;
-            vec[j].type = CellType::Vaccinated;
+            vec[j].type = CellType::PartiallyVaccinated;
             vec[j].active = false;
             break;
 
           // Non-vaccinated
           case 'N':
             vec[j].status = Status::HEALTHY;
-            vec[j].type = CellType::PartiallyVaccinated;
+            vec[j].type = CellType::NonVaccinated;
             vec[j].active = true;
             break;
 
@@ -434,7 +458,7 @@ namespace Map {
     std::cout << std::endl;
   }
 
-  int updateMapStatus(std::vector<std::vector<Cell>>& map)
+  int moveCells(std::vector<std::vector<Cell>>& map) 
   {
     int64_t h = map.size(),
             w = map[0].size();
@@ -444,18 +468,10 @@ namespace Map {
     {
       for (int64_t j = 0; j < w; ++j)
       {
-        if (map[i][j].active)
-        {
+        if (!map[i][j].active) { continue; }
 
-          // Pohyb
-          //int y = j;
-          //int x = i;
-          
-          //bool empty_place = false;
-          //int direction = rand() % 4;
-          //srand(time(NULL));
-  
-          std::vector<std::tuple<int,int>> possible_moves;
+        // Pohyb
+        std::vector<std::tuple<int,int>> possible_moves;
 
           for (auto x = (i - 1); x <= (i + 1); ++x) 
           {
@@ -487,8 +503,139 @@ namespace Map {
           int y = std::get<1>(possible_moves[direction]); // y
           
           std::swap(map[i][j], map[x][y]);
+      }
+    }
+    return 0;
+  }
 
-          /*
+  int updateMapStatus(std::vector<std::vector<Cell>>& map)
+  {
+    int64_t h = map.size(),
+            w = map[0].size();
+    //float rand;
+    
+    for (int64_t i = 0; i < h; ++i)
+    {
+      for (int64_t j = 0; j < w; ++j)
+      {
+        //if (!map[i][j].active) { continue; }
+        
+        switch(map[i][j].status) {
+            case Status::HEALTHY:
+              if (map[i][j].type == CellType::Vaccinated)
+              {
+                ++vaccinated;
+                ++healthy;
+                ++v_healthy;
+              }
+              else if (map[i][j].type == CellType::PartiallyVaccinated)
+              {
+                ++partially_vaccinated;
+                ++healthy;
+                ++p_healthy;
+              }
+              else if (map[i][j].type == CellType::NonVaccinated)
+              {
+                ++nonvaccinated;
+                ++healthy;
+                ++n_healthy;
+              }
+              break;
+
+            case Status::INFECTED:
+
+              ++map[i][j].infected_counter;
+              
+              if (map[i][j].infected_counter > 150) { // Doba, kedy sa stane infekcny
+                map[i][j].infectious = true;
+              } else {
+                map[i][j].infectious = false; 
+              }
+              
+              if (map[i][j].type == CellType::Vaccinated)
+              {
+                ++vaccinated;
+                if (map[i][j].infected_counter >= 350) // Evaulacia po case
+                {
+                  map[i][j].status = Status::HEALTHY;
+                  map[i][j].infected_counter = 0;
+                  map[i][j].infectious = false;
+                  ++healthy;
+                  ++v_healthy;
+                }
+                else // Pokracovanie infikacie
+                {
+                  ++infected;
+                  ++v_infected;
+                }
+              
+              }
+              else if (map[i][j].type == CellType::PartiallyVaccinated)
+              {
+                ++partially_vaccinated;
+
+              }
+              else if (map[i][j].type == CellType::NonVaccinated)
+              {
+                ++nonvaccinated;
+                if (map[i][j].infected_counter >= 350) // Evaulacia po case
+                {
+                  auto r = rand_mod(10000);
+                  if (1.9f*100 >= r) // Sanca na umrtie
+                  {
+                    map[i][j].status = Status::DEAD;
+                    map[i][j].active = false;
+                    map[i][j].infectious = false;
+                     map[i][j].infected_counter = 0;
+                    ++dead;
+                    ++n_dead;
+                  }
+                  else // Prezitie nakazy
+                  {
+                    map[i][j].status = Status::HEALTHY;
+                    map[i][j].infected_counter = 0;
+                    map[i][j].infectious = false;
+                    ++healthy;
+                    ++n_healthy;
+                    ++retrieved;
+                  }
+                }
+                else // Pokracovanie infikacie
+                {
+                  ++infected;
+                  ++n_infected;
+                }
+              }
+              break;
+
+            case Status::DEAD:
+              ++dead;
+              if (map[i][j].type == CellType::Vaccinated)
+              {
+                ++vaccinated;
+                ++v_dead;
+              }
+              else if (map[i][j].type == CellType::PartiallyVaccinated)
+              {
+                ++partially_vaccinated;
+                ++p_dead;
+              }
+              else if (map[i][j].type == CellType::NonVaccinated)
+              {
+                ++nonvaccinated;
+                ++n_dead;
+              }
+              break;
+
+            default:
+              break;
+        }
+        
+        
+        
+          
+          
+          /* stare
           switch(map[i][j].status) {
             
             case Status::BURNING:
@@ -561,7 +708,9 @@ namespace Map {
             default:
               break;
           }*/
-        }
+        
+        
+        
         //map[i][j].flammability = 0.0;
       }
     }
@@ -570,13 +719,14 @@ namespace Map {
     if (tick % log_period == 0) 
     {
       
-      std::cout << "Tick: " << tick << "\tPopulation: " << population << std::endl; // << "\tActive: " << healthy+infected
-      /* 
-        << " Not burning (All):\t" << not_burning << "\tBurning (All):\t\t" << burning << "\tBurned (All):\t\t" << burned << "\tAffected (All):\t\t" << burning+burned << NEWLINE
-        << " Not burning (Tree):\t" << not_burning_tree << "\tBurning (Tree):\t\t" << burning_tree << "\tBurned (Tree):\t\t" << burned_tree << "\tAffected (Tree):\t" << burning_tree+burned_tree << NEWLINE
-        << " Not burning (Brush):\t" << not_burning_brush << "\tBurning (Brush):\t" << burning_brush << "\tBurned (Brush):\t\t" << burned_brush << "\tAffected (Brush):\t" << burning_brush+burned_brush << NEWLINE
+      std::cout << "Tick: " << tick << " Popul: " << population << " Vacc: " << vaccinated << " NonVacc: " << nonvaccinated << NEWLINE // << "\tActive: " << healthy+infected
+      
+        << " Healthy (All):\t\t" << healthy << "\tInfected (All):\t\t" << infected << "\tDead (All):\t" << dead << NEWLINE //"\tAffected (All):\t\t" << burning+burned << NEWLINE
+        << " Healthy (Vacc):\t" << v_healthy << "\tInfected (Vacc):\t" << v_infected << "\tDead (Vacc)\t" << v_dead << NEWLINE //"\tAffected (Tree):\t" << burning_tree+burned_tree << NEWLINE
+        << " Healthy (NonVacc):\t" << n_healthy << "\tInfected (NonVacc):\t" << n_infected << "\tDead (NonVacc)\t" << n_dead << NEWLINE //"\tAffected (Brush):\t" << burning_brush+burned_brush << NEWLINE
+        << " Retrtieved (All): " << retrieved << NEWLINE
         << std::endl;
-      /* 
+      /*
       if (logging)
       {
         map_state_log
@@ -596,7 +746,7 @@ namespace Map {
     healthy = 0;
     infected = 0;
     dead = 0;
-    retrieved = 0;
+    //retrieved = 0;
 
     v_healthy = 0;
     v_infected = 0;

@@ -37,7 +37,7 @@ build-run: all run
 
 # Local documentation building
 doc: $(DOCDIR)main.tex $(DOCDIR)manual.bib $(DOCDIR)czechiso.bst
-	cd $(DOCDIR) && latexmk -pdf main.tex && latexmk -c
+	cd $(DOCDIR) && latexmk -pvc -pdf -interaction=nonstopmode main.tex && latexmk -c
 	mv $(DOCDIR)main.pdf dokumentacia.pdf
 
 zip:

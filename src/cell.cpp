@@ -32,7 +32,6 @@ private:
 public:
   Cell();
   Cell(int64_t, int64_t);
-  Cell(int64_t, int64_t, bool, int64_t, int64_t, Status, CellType);
   ~Cell();
 
   int64_t x = 0;
@@ -40,8 +39,7 @@ public:
   bool active = false;
   //double  flammability = 0.0;
   bool infectious = false;
-  int64_t incubation_period = 0; // ticks
-  int64_t infected_remaining = 0; // ticks
+  int64_t infected_counter = 0; // ticks
 
   //int64_t fuel_amount  = 0;
   //int64_t burning_tick = 0;
@@ -61,23 +59,6 @@ Cell::Cell(int64_t x,
 {
   this->x = x;
   this->y = y;
-}
-
-Cell::Cell(int64_t x, 
-          int64_t y, 
-          bool active,
-          int64_t incubation_period, 
-          int64_t infected_remaining, 
-          Status status, 
-          CellType type)
-{
-  this->x = x;
-  this->y = y;
-  this->active = active;
-  this->incubation_period = incubation_period;
-  this->infected_remaining = infected_remaining;
-  this->status = status;
-  this->type = type;
 }
 
 char Cell::cellStatusChar() {

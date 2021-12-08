@@ -55,6 +55,8 @@ int updateCell(const std::vector<std::vector<Cell>>& map,
 
               //if (!map[x][y].infectious) { continue; } // TODO: navysuj infekcnost v map.cpp
 
+              if (map[x][y].infectious == false) { break; }
+
               switch(map[i][j].type) { // Current cell type
                 
                 case CellType::Vaccinated:  // Current cell type
@@ -138,6 +140,8 @@ void display()
   updateCellAll(map, newMap);
   // Update status of every cell
   Map::updateMapStatus(newMap);
+  // Move cells on the map
+  Map::moveCells(newMap);
   map = newMap;
 
   for (auto [i, line] : enumerate(map))
@@ -219,7 +223,7 @@ int main (int argc, char *argv[])
 
   srand(time(NULL)); // initialize random function
   std::vector<std::string> mapChars;
-  mapChars = seed4(mapChars, 1000, 45000.0f, population, 75, 0);
+  mapChars = seed4(mapChars, 958, 40000.0f, population, 40, 0, 0.05f);
   //mapChars = seed4(mapChars, 479, 'N', 47000.0f, 11025); 
   //mapChars = seed4(mapChars, 958 , 'N', 38000.0f, 22050); 
   //mapChars = seed4(mapChars, MAX_SIZE, 'N', 46000.0f, 500000); 
