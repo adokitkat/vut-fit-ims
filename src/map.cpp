@@ -227,10 +227,14 @@ std::vector<std::string> seed3(std::vector<std::string> mapChars,
 
 std::vector<std::string> seed4(std::vector<std::string> mapChars, 
                               int64_t size = MAX_SIZE, 
-                              char type = '.',
                               float _seed = 40000.0f, 
-                              int people = 1000000) 
+                              int people = 1000000,
+                              int vaxd_percent = 40,
+                              int par_vaxd_percent = 20) 
 {
+
+  int vaxd = (people/100)*vaxd_percent;
+  int par_vaxd = (people/100)*par_vaxd_percent;
 
   int max = size * size;
   std::string map1D(max, '.');
@@ -244,7 +248,7 @@ std::vector<std::string> seed4(std::vector<std::string> mapChars,
 
   PerlinNoise2D(size, size, noise_seed, 9, 1.3f, out_seed);
 
-  for (int i = 0; i < people;)
+  for (int i = 0; i < vaxd;)
   {
     //std::cout << "-";
     x = rand() % max;
@@ -258,13 +262,59 @@ std::vector<std::string> seed4(std::vector<std::string> mapChars,
       if( ((int)(out_seed[x] * 0.5f) > _seed && pseudo_rand() > _seed - 10000.0f))
       {
         //std::cout << "O";
-        map1D[x] = type;
+        map1D[x] = 'V';
         ++i;
       }
       
     }
-    
+
   }
+
+  for (int i = 0; i < par_vaxd;)
+  {
+    //std::cout << "-";
+    x = rand() % max;
+    if (map1D[x] != '.')
+    {
+      continue;
+    } else {
+      //map1D[x] = type;
+      //++i;
+      
+      if( ((int)(out_seed[x] * 0.5f) > _seed && pseudo_rand() > _seed - 10000.0f))
+      {
+        //std::cout << "O";
+        map1D[x] = 'P';
+        ++i;
+      }
+      
+    }
+
+  }
+
+  for (int i = 0; i < (people - vaxd - par_vaxd);)
+  {
+    //std::cout << "-";
+    x = rand() % max;
+    if (map1D[x] != '.')
+    {
+      continue;
+    } else {
+      //map1D[x] = type;
+      //++i;
+      
+      if( ((int)(out_seed[x] * 0.5f) > _seed && pseudo_rand() > _seed - 10000.0f))
+      {
+        //std::cout << "O";
+        map1D[x] = 'N';
+        ++i;
+      }
+      
+    }
+
+  }
+
+  map1D[500000] = 'Z';
 /*
   for(auto x = 0; x < map1D.size(); x++)
   {
@@ -285,53 +335,6 @@ std::vector<std::string> seed4(std::vector<std::string> mapChars,
 
   return mapChars;
 }
-
-std::string getWindDirection()
-  {
-    switch (wind)
-    {
-      case Wind::None:
-        return "None";
-        break;
-      
-      case Wind::N:
-        return "N";
-        break;
-      
-      case Wind::NW:
-        return "NW";
-        break;
-
-      case Wind::W:
-        return "W";
-        break;
-
-      case Wind::SW:
-        return "SW";
-        break;
-
-      case Wind::S:
-        return "S";
-        break;
-      
-      case Wind::SE:
-        return "SE";
-        break;
-
-      case Wind::E:
-        return "E";
-        break;
-      
-      case Wind::NE:
-        return "NE";
-        break;
-
-      default:
-        return "";
-        break;
-    }
-    return "";
-  }
 
 namespace Map {
 
@@ -435,7 +438,7 @@ namespace Map {
   {
     int64_t h = map.size(),
             w = map[0].size();
-    float rand;
+    //float rand;
     
     for (int64_t i = 0; i < h; ++i)
     {
@@ -443,8 +446,51 @@ namespace Map {
       {
         if (map[i][j].active)
         {
+
+          // Pohyb
+          //int y = j;
+          //int x = i;
+          
+          //bool empty_place = false;
+          //int direction = rand() % 4;
+          //srand(time(NULL));
+  
+          std::vector<std::tuple<int,int>> possible_moves;
+
+          for (auto x = (i - 1); x <= (i + 1); ++x) 
+          {
+            for (auto y = (j - 1); y <= (j + 1); ++y)
+            {
+              if (x == i and y == j) { continue; }
+
+              auto a = x;
+              auto b = y;
+              if (x < 0) { a = h + x; }
+              if (x >= h) { a = x - h; }
+              if (y < 0) { b = w + y; }
+              if (y >= w) { b = y - w; }
+
+              //if (x >= 0 and x < h and y >= 0 and y < w)
+              //{
+                if (!map[a][b].active) {
+                  possible_moves.push_back(std::make_tuple(a, b));
+                }
+              //}
+             
+            }
+          }
+
+          if (possible_moves.size() == 0) { continue; }
+
+          int direction = rand() % possible_moves.size();
+          int x = std::get<0>(possible_moves[direction]); // x
+          int y = std::get<1>(possible_moves[direction]); // y
+          
+          std::swap(map[i][j], map[x][y]);
+
+          /*
           switch(map[i][j].status) {
-            /*
+            
             case Status::BURNING:
               if (map[i][j].type == CellType::Tree)
               {
@@ -481,7 +527,7 @@ namespace Map {
 
             case Status::NOT_BURNING:
               rand = rand_mod_100();
-              if (map[i][j].flammability*100 > rand)//* 100 >= rand_mod_100())
+              if (map[i][j].flammability*100 > rand)// * 100 >= rand_mod_100())
               {
                 map[i][j].status = Status::BURNING;
                 ++burning;
@@ -511,24 +557,26 @@ namespace Map {
               else if (map[i][j].type == CellType::Brush)
                 { ++burned_brush; }
               break;
-            */
+            
             default:
               break;
-          }
+          }*/
         }
-        map[i][j].flammability = 0.0;
+        //map[i][j].flammability = 0.0;
       }
     }
     
      
     if (tick % log_period == 0) 
     {
-      std::cout << "Tick: " << tick << "\t\tWind direction: " << getWindDirection() << "\tWind intensity: " << k_global << "\tActive: " << not_burning+burning+burned << NEWLINE
+      
+      std::cout << "Tick: " << tick << "\tPopulation: " << population << std::endl; // << "\tActive: " << healthy+infected
+      /* 
         << " Not burning (All):\t" << not_burning << "\tBurning (All):\t\t" << burning << "\tBurned (All):\t\t" << burned << "\tAffected (All):\t\t" << burning+burned << NEWLINE
         << " Not burning (Tree):\t" << not_burning_tree << "\tBurning (Tree):\t\t" << burning_tree << "\tBurned (Tree):\t\t" << burned_tree << "\tAffected (Tree):\t" << burning_tree+burned_tree << NEWLINE
         << " Not burning (Brush):\t" << not_burning_brush << "\tBurning (Brush):\t" << burning_brush << "\tBurned (Brush):\t\t" << burned_brush << "\tAffected (Brush):\t" << burning_brush+burned_brush << NEWLINE
         << std::endl;
-      
+      /* 
       if (logging)
       {
         map_state_log
@@ -537,25 +585,38 @@ namespace Map {
           << " " << not_burning_brush << " " << burning_brush << " " << burned_brush << " " << burning_brush+burned_brush
           << " " << k_global << std::endl;
       }
+      */
     }
     ++tick;
 
-    burning = 0;
-    burned = 0;
-    not_burning = 0;
+    vaccinated = 0;
+    partially_vaccinated = 0;
+    nonvaccinated = 0;
 
-    not_burning_tree = 0;
-    burning_tree = 0;
-    burned_tree = 0;
+    healthy = 0;
+    infected = 0;
+    dead = 0;
+    retrieved = 0;
 
-    not_burning_brush = 0;
-    burning_brush = 0;
-    burned_brush = 0;
+    v_healthy = 0;
+    v_infected = 0;
+    v_dead = 0;
+    v_retrieved = 0;
+
+    p_healthy = 0;
+    p_infected = 0;
+    p_dead = 0;
+    p_retrieved = 0;
+
+    n_healthy = 0;
+    n_infected = 0;
+    n_dead = 0;
+    n_retrieved = 0;
 
     return 0;
   }
 
-  void igniteCellRadius(std::vector<std::vector<Cell>>& map, 
+  void infectCellRadius(std::vector<std::vector<Cell>>& map, 
                         int64_t i, 
                         int64_t j, 
                         int64_t radius = 3)
@@ -566,8 +627,10 @@ namespace Map {
       {
         if (x >= 0 and x < h and y >= 0 and y < w)
         {
-          if (map[x][y].status == Status::HEALTHY or map[x][y].status == Status::RETRIEVED)
-            { map[x][y].status = Status::INFECTED; }
+          if (map[x][y].status == Status::HEALTHY)
+          {
+            map[x][y].status = Status::INFECTED;
+          }
         }
       }
     }
