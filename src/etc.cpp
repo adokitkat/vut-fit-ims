@@ -32,7 +32,10 @@ int64_t MAX_SIZE {1000},
         w {0},
         radius_global {2}, // Radius of spread
         //v_infectious_tick {};
-        map_size {400};
+        map_size {400},
+        day {25}, // day ticks
+        sleep_for_ticks {10}, //night ticks
+        r_seed {0};
 
 // Mouse events
 bool  leftMouseButtonDown { false },
@@ -57,6 +60,9 @@ void mouse(int button, int state, int x, int y)
 // Logging
 bool logging {false};
 std::ofstream map_state_log;
+float vaccinated_start_percent {40.0},
+      partially_vaccinated_start_percent {0},
+      infected_start_percent {0.05};
 int64_t log_period {25},
         tick {0},
         active {0},
@@ -155,10 +161,14 @@ void parseArgs(int& argc,
     {"gui",            no_argument, nullptr, 'g'},
     {"log",            no_argument, nullptr, 'l'},
     {"help",           no_argument, nullptr, 'h'},
-    {"map-size",       no_argument, nullptr, 's'},
+    {"map-size",       no_argument, nullptr, 'm'},
     {"population",     no_argument, nullptr, 'n'},
     {"vaccinated",     no_argument, nullptr, 'v'},
     {"part-vaccinated",no_argument, nullptr, 'p'},
+    {"infected",       no_argument, nullptr, 'i'},
+    {"day",            no_argument, nullptr, 'd'},
+    {"sleep",          no_argument, nullptr, 's'},
+    {"seed",           no_argument, nullptr, 'z'},
     {nullptr,          no_argument, nullptr, 0}
   };
 
@@ -166,7 +176,7 @@ void parseArgs(int& argc,
   // Load arguments
   while (arg != -1)
   {
-    arg = getopt_long(argc, argv, "xyglhsnvp", long_options, nullptr);
+    arg = getopt_long(argc, argv, "xyglhmnvpidsz", long_options, nullptr);
     switch (arg)
     {
       case 'x':
@@ -206,7 +216,7 @@ void parseArgs(int& argc,
         }
         break;
 
-      case 's':
+      case 'm':
         if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
         { 
           std::istringstream iss (argv[optind++]);
@@ -246,10 +256,13 @@ void parseArgs(int& argc,
         if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
         { 
           std::istringstream iss (argv[optind++]);
-          int64_t val;
+          float val;
 
           if (iss >> val)
-            { vaccinated = val; }
+          { 
+            vaccinated_start_percent = val;
+            //vaccinated = val; 
+          }
         }
         else
         {
@@ -258,15 +271,19 @@ void parseArgs(int& argc,
         }
         break;
         
-        case 'p':
-        std::cout << argv[optind][0];
+      case 'p':
+        //std::cout << argv[optind][0];
         if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
         { 
           std::istringstream iss (argv[optind++]);
-          int64_t val;
+          float val;
 
           if (iss >> val)
-            { partially_vaccinated = val; }
+          { 
+            partially_vaccinated_start_percent = val;
+            //vaccinated = val; 
+          }
+
         }
         else
         {
@@ -274,6 +291,77 @@ void parseArgs(int& argc,
           std::exit(EXIT_FAILURE);
         }
         break;
+
+      case 'i':
+        if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
+        { 
+          std::istringstream iss (argv[optind++]);
+          float val;
+
+          if (iss >> val)
+          { 
+            infected_start_percent = val;
+          }
+        }
+        else
+        {
+          std::cerr << "Please specify number of vaccinated people." << std::endl;
+          std::exit(EXIT_FAILURE);
+        }
+        break;
+
+       case 'd':
+          //std::cout << argv[optind][0];
+          if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
+          { 
+            std::istringstream iss (argv[optind++]);
+            int64_t val;
+
+            if (iss >> val)
+              { day = val; }
+          }
+          else
+          {
+            std::cerr << "Please specify number of partially vaccinated people." << std::endl;
+            std::exit(EXIT_FAILURE);
+          }
+          break;
+
+      case 's':
+          //std::cout << argv[optind][0];
+          if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
+          { 
+            std::istringstream iss (argv[optind++]);
+            int64_t val;
+
+            if (iss >> val)
+              { sleep_for_ticks = val; }
+          }
+          else
+          {
+            std::cerr << "Please specify number of partially vaccinated people." << std::endl;
+            std::exit(EXIT_FAILURE);
+          }
+          break;
+
+      case 'z':
+          //std::cout << argv[optind][0];
+          if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
+          { 
+            std::istringstream iss (argv[optind++]);
+            int64_t val;
+
+            if (iss >> val)
+            { 
+              r_seed = val;
+            }
+          }
+          else
+          {
+            std::cerr << "Please specify number of partially vaccinated people." << std::endl;
+            std::exit(EXIT_FAILURE);
+          }
+          break;
 
       case 'g':
         gui = true;

@@ -1,0 +1,704 @@
+Tick: 0 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9995    Infected (All):         5       Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        4000    Infected (Vacc):        0       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5995    Infected (NonVacc):     5       Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 25 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9995    Infected (All):         5       Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        4000    Infected (Vacc):        0       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5995    Infected (NonVacc):     5       Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 50 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9995    Infected (All):         5       Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        4000    Infected (Vacc):        0       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5995    Infected (NonVacc):     5       Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 75 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9995    Infected (All):         5       Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        4000    Infected (Vacc):        0       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5995    Infected (NonVacc):     5       Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 100 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9995    Infected (All):         5       Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        4000    Infected (Vacc):        0       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5995    Infected (NonVacc):     5       Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 125 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9995    Infected (All):         5       Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        4000    Infected (Vacc):        0       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5995    Infected (NonVacc):     5       Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 150 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9995    Infected (All):         5       Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        4000    Infected (Vacc):        0       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5995    Infected (NonVacc):     5       Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 175 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9993    Infected (All):         7       Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        3999    Infected (Vacc):        1       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5994    Infected (NonVacc):     6       Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 200 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9991    Infected (All):         9       Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        3998    Infected (Vacc):        2       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5993    Infected (NonVacc):     7       Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 225 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9990    Infected (All):         10      Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        3997    Infected (Vacc):        3       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5993    Infected (NonVacc):     7       Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 250 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9988    Infected (All):         12      Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        3997    Infected (Vacc):        3       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5991    Infected (NonVacc):     9       Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 275 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9987    Infected (All):         13      Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        3997    Infected (Vacc):        3       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5990    Infected (NonVacc):     10      Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 300 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9986    Infected (All):         14      Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        3996    Infected (Vacc):        4       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5990    Infected (NonVacc):     10      Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 325 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9984    Infected (All):         16      Retrtieved (All):       0       Dead (All):     0
+ Healthy (Vacc):        3996    Infected (Vacc):        4       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5988    Infected (NonVacc):     12      Retrtieved (NonVac):    0       Dead (NonVacc)  0
+
+Tick: 350 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9985    Infected (All):         15      Retrtieved (All):       5       Dead (All):     0
+ Healthy (Vacc):        3996    Infected (Vacc):        4       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5989    Infected (NonVacc):     11      Retrtieved (NonVac):    5       Dead (NonVacc)  0
+
+Tick: 375 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9983    Infected (All):         17      Retrtieved (All):       5       Dead (All):     0
+ Healthy (Vacc):        3994    Infected (Vacc):        6       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5989    Infected (NonVacc):     11      Retrtieved (NonVac):    5       Dead (NonVacc)  0
+
+Tick: 400 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9981    Infected (All):         19      Retrtieved (All):       5       Dead (All):     0
+ Healthy (Vacc):        3994    Infected (Vacc):        6       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5987    Infected (NonVacc):     13      Retrtieved (NonVac):    5       Dead (NonVacc)  0
+
+Tick: 425 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9979    Infected (All):         21      Retrtieved (All):       5       Dead (All):     0
+ Healthy (Vacc):        3994    Infected (Vacc):        6       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5985    Infected (NonVacc):     15      Retrtieved (NonVac):    5       Dead (NonVacc)  0
+
+Tick: 450 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9974    Infected (All):         26      Retrtieved (All):       5       Dead (All):     0
+ Healthy (Vacc):        3993    Infected (Vacc):        7       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5981    Infected (NonVacc):     19      Retrtieved (NonVac):    5       Dead (NonVacc)  0
+
+Tick: 475 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9972    Infected (All):         28      Retrtieved (All):       5       Dead (All):     0
+ Healthy (Vacc):        3992    Infected (Vacc):        8       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5980    Infected (NonVacc):     20      Retrtieved (NonVac):    5       Dead (NonVacc)  0
+
+Tick: 500 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9972    Infected (All):         28      Retrtieved (All):       6       Dead (All):     0
+ Healthy (Vacc):        3992    Infected (Vacc):        8       Retrtieved (Vacc):      0       Dead (Vacc)     0
+ Healthy (NonVacc):     5980    Infected (NonVacc):     20      Retrtieved (NonVac):    6       Dead (NonVacc)  0
+
+Tick: 525 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9973    Infected (All):         27      Retrtieved (All):       8       Dead (All):     0
+ Healthy (Vacc):        3993    Infected (Vacc):        7       Retrtieved (Vacc):      2       Dead (Vacc)     0
+ Healthy (NonVacc):     5980    Infected (NonVacc):     20      Retrtieved (NonVac):    6       Dead (NonVacc)  0
+
+Tick: 550 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9969    Infected (All):         31      Retrtieved (All):       9       Dead (All):     0
+ Healthy (Vacc):        3991    Infected (Vacc):        9       Retrtieved (Vacc):      2       Dead (Vacc)     0
+ Healthy (NonVacc):     5978    Infected (NonVacc):     22      Retrtieved (NonVac):    7       Dead (NonVacc)  0
+
+Tick: 575 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9964    Infected (All):         36      Retrtieved (All):       11      Dead (All):     0
+ Healthy (Vacc):        3990    Infected (Vacc):        10      Retrtieved (Vacc):      3       Dead (Vacc)     0
+ Healthy (NonVacc):     5974    Infected (NonVacc):     26      Retrtieved (NonVac):    8       Dead (NonVacc)  0
+
+Tick: 600 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9963    Infected (All):         37      Retrtieved (All):       13      Dead (All):     0
+ Healthy (Vacc):        3989    Infected (Vacc):        11      Retrtieved (Vacc):      3       Dead (Vacc)     0
+ Healthy (NonVacc):     5974    Infected (NonVacc):     26      Retrtieved (NonVac):    10      Dead (NonVacc)  0
+
+Tick: 625 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9955    Infected (All):         45      Retrtieved (All):       13      Dead (All):     0
+ Healthy (Vacc):        3987    Infected (Vacc):        13      Retrtieved (Vacc):      3       Dead (Vacc)     0
+ Healthy (NonVacc):     5968    Infected (NonVacc):     32      Retrtieved (NonVac):    10      Dead (NonVacc)  0
+
+Tick: 650 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9950    Infected (All):         50      Retrtieved (All):       14      Dead (All):     0
+ Healthy (Vacc):        3988    Infected (Vacc):        12      Retrtieved (Vacc):      4       Dead (Vacc)     0
+ Healthy (NonVacc):     5962    Infected (NonVacc):     38      Retrtieved (NonVac):    10      Dead (NonVacc)  0
+
+Tick: 675 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9948    Infected (All):         52      Retrtieved (All):       16      Dead (All):     0
+ Healthy (Vacc):        3987    Infected (Vacc):        13      Retrtieved (Vacc):      4       Dead (Vacc)     0
+ Healthy (NonVacc):     5961    Infected (NonVacc):     39      Retrtieved (NonVac):    12      Dead (NonVacc)  0
+
+Tick: 700 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9950    Infected (All):         50      Retrtieved (All):       20      Dead (All):     0
+ Healthy (Vacc):        3986    Infected (Vacc):        14      Retrtieved (Vacc):      4       Dead (Vacc)     0
+ Healthy (NonVacc):     5964    Infected (NonVacc):     36      Retrtieved (NonVac):    16      Dead (NonVacc)  0
+
+Tick: 725 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9941    Infected (All):         59      Retrtieved (All):       22      Dead (All):     0
+ Healthy (Vacc):        3988    Infected (Vacc):        12      Retrtieved (Vacc):      6       Dead (Vacc)     0
+ Healthy (NonVacc):     5953    Infected (NonVacc):     47      Retrtieved (NonVac):    16      Dead (NonVacc)  0
+
+Tick: 750 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9931    Infected (All):         69      Retrtieved (All):       24      Dead (All):     0
+ Healthy (Vacc):        3984    Infected (Vacc):        16      Retrtieved (Vacc):      6       Dead (Vacc)     0
+ Healthy (NonVacc):     5947    Infected (NonVacc):     53      Retrtieved (NonVac):    18      Dead (NonVacc)  0
+
+Tick: 775 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9926    Infected (All):         74      Retrtieved (All):       26      Dead (All):     0
+ Healthy (Vacc):        3984    Infected (Vacc):        16      Retrtieved (Vacc):      6       Dead (Vacc)     0
+ Healthy (NonVacc):     5942    Infected (NonVacc):     58      Retrtieved (NonVac):    20      Dead (NonVacc)  0
+
+Tick: 800 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9923    Infected (All):         77      Retrtieved (All):       31      Dead (All):     0
+ Healthy (Vacc):        3984    Infected (Vacc):        16      Retrtieved (Vacc):      7       Dead (Vacc)     0
+ Healthy (NonVacc):     5939    Infected (NonVacc):     61      Retrtieved (NonVac):    24      Dead (NonVacc)  0
+
+Tick: 825 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9921    Infected (All):         79      Retrtieved (All):       33      Dead (All):     0
+ Healthy (Vacc):        3984    Infected (Vacc):        16      Retrtieved (Vacc):      8       Dead (Vacc)     0
+ Healthy (NonVacc):     5937    Infected (NonVacc):     63      Retrtieved (NonVac):    25      Dead (NonVacc)  0
+
+Tick: 850 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9912    Infected (All):         88      Retrtieved (All):       34      Dead (All):     0
+ Healthy (Vacc):        3983    Infected (Vacc):        17      Retrtieved (Vacc):      8       Dead (Vacc)     0
+ Healthy (NonVacc):     5929    Infected (NonVacc):     71      Retrtieved (NonVac):    26      Dead (NonVacc)  0
+
+Tick: 875 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9899    Infected (All):         101     Retrtieved (All):       36      Dead (All):     0
+ Healthy (Vacc):        3980    Infected (Vacc):        20      Retrtieved (Vacc):      9       Dead (Vacc)     0
+ Healthy (NonVacc):     5919    Infected (NonVacc):     81      Retrtieved (NonVac):    27      Dead (NonVacc)  0
+
+Tick: 900 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9887    Infected (All):         113     Retrtieved (All):       40      Dead (All):     0
+ Healthy (Vacc):        3978    Infected (Vacc):        22      Retrtieved (Vacc):      11      Dead (Vacc)     0
+ Healthy (NonVacc):     5909    Infected (NonVacc):     91      Retrtieved (NonVac):    29      Dead (NonVacc)  0
+
+Tick: 925 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9881    Infected (All):         119     Retrtieved (All):       47      Dead (All):     0
+ Healthy (Vacc):        3976    Infected (Vacc):        24      Retrtieved (Vacc):      13      Dead (Vacc)     0
+ Healthy (NonVacc):     5905    Infected (NonVacc):     95      Retrtieved (NonVac):    34      Dead (NonVacc)  0
+
+Tick: 950 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9868    Infected (All):         132     Retrtieved (All):       51      Dead (All):     0
+ Healthy (Vacc):        3973    Infected (Vacc):        27      Retrtieved (Vacc):      14      Dead (Vacc)     0
+ Healthy (NonVacc):     5895    Infected (NonVacc):     105     Retrtieved (NonVac):    37      Dead (NonVacc)  0
+
+Tick: 975 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9869    Infected (All):         131     Retrtieved (All):       58      Dead (All):     0
+ Healthy (Vacc):        3973    Infected (Vacc):        27      Retrtieved (Vacc):      16      Dead (Vacc)     0
+ Healthy (NonVacc):     5896    Infected (NonVacc):     104     Retrtieved (NonVac):    42      Dead (NonVacc)  0
+
+Tick: 1000 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9851    Infected (All):         149     Retrtieved (All):       64      Dead (All):     0
+ Healthy (Vacc):        3965    Infected (Vacc):        35      Retrtieved (Vacc):      16      Dead (Vacc)     0
+ Healthy (NonVacc):     5886    Infected (NonVacc):     114     Retrtieved (NonVac):    48      Dead (NonVacc)  0
+
+Tick: 1025 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9849    Infected (All):         151     Retrtieved (All):       68      Dead (All):     0
+ Healthy (Vacc):        3964    Infected (Vacc):        36      Retrtieved (Vacc):      17      Dead (Vacc)     0
+ Healthy (NonVacc):     5885    Infected (NonVacc):     115     Retrtieved (NonVac):    51      Dead (NonVacc)  0
+
+Tick: 1050 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9841    Infected (All):         159     Retrtieved (All):       72      Dead (All):     0
+ Healthy (Vacc):        3961    Infected (Vacc):        39      Retrtieved (Vacc):      18      Dead (Vacc)     0
+ Healthy (NonVacc):     5880    Infected (NonVacc):     120     Retrtieved (NonVac):    54      Dead (NonVacc)  0
+
+Tick: 1075 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9827    Infected (All):         173     Retrtieved (All):       81      Dead (All):     0
+ Healthy (Vacc):        3956    Infected (Vacc):        44      Retrtieved (Vacc):      18      Dead (Vacc)     0
+ Healthy (NonVacc):     5871    Infected (NonVacc):     129     Retrtieved (NonVac):    63      Dead (NonVacc)  0
+
+Tick: 1100 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9821    Infected (All):         179     Retrtieved (All):       94      Dead (All):     0
+ Healthy (Vacc):        3955    Infected (Vacc):        45      Retrtieved (Vacc):      22      Dead (Vacc)     0
+ Healthy (NonVacc):     5866    Infected (NonVacc):     134     Retrtieved (NonVac):    72      Dead (NonVacc)  0
+
+Tick: 1125 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9813    Infected (All):         187     Retrtieved (All):       102     Dead (All):     0
+ Healthy (Vacc):        3954    Infected (Vacc):        46      Retrtieved (Vacc):      22      Dead (Vacc)     0
+ Healthy (NonVacc):     5859    Infected (NonVacc):     141     Retrtieved (NonVac):    80      Dead (NonVacc)  0
+
+Tick: 1150 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9793    Infected (All):         207     Retrtieved (All):       108     Dead (All):     0
+ Healthy (Vacc):        3946    Infected (Vacc):        54      Retrtieved (Vacc):      23      Dead (Vacc)     0
+ Healthy (NonVacc):     5847    Infected (NonVacc):     153     Retrtieved (NonVac):    85      Dead (NonVacc)  0
+
+Tick: 1175 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9790    Infected (All):         210     Retrtieved (All):       115     Dead (All):     0
+ Healthy (Vacc):        3943    Infected (Vacc):        57      Retrtieved (Vacc):      24      Dead (Vacc)     0
+ Healthy (NonVacc):     5847    Infected (NonVacc):     153     Retrtieved (NonVac):    91      Dead (NonVacc)  0
+
+Tick: 1200 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9774    Infected (All):         226     Retrtieved (All):       123     Dead (All):     0
+ Healthy (Vacc):        3940    Infected (Vacc):        60      Retrtieved (Vacc):      25      Dead (Vacc)     0
+ Healthy (NonVacc):     5834    Infected (NonVacc):     166     Retrtieved (NonVac):    98      Dead (NonVacc)  0
+
+Tick: 1225 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9768    Infected (All):         232     Retrtieved (All):       137     Dead (All):     0
+ Healthy (Vacc):        3937    Infected (Vacc):        63      Retrtieved (Vacc):      29      Dead (Vacc)     0
+ Healthy (NonVacc):     5831    Infected (NonVacc):     169     Retrtieved (NonVac):    108     Dead (NonVacc)  0
+
+Tick: 1250 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9765    Infected (All):         234     Retrtieved (All):       153     Dead (All):     1
+ Healthy (Vacc):        3935    Infected (Vacc):        65      Retrtieved (Vacc):      33      Dead (Vacc)     0
+ Healthy (NonVacc):     5830    Infected (NonVacc):     169     Retrtieved (NonVac):    120     Dead (NonVacc)  1
+
+Tick: 1275 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9753    Infected (All):         246     Retrtieved (All):       165     Dead (All):     1
+ Healthy (Vacc):        3931    Infected (Vacc):        69      Retrtieved (Vacc):      37      Dead (Vacc)     0
+ Healthy (NonVacc):     5822    Infected (NonVacc):     177     Retrtieved (NonVac):    128     Dead (NonVacc)  1
+
+Tick: 1300 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9749    Infected (All):         250     Retrtieved (All):       182     Dead (All):     1
+ Healthy (Vacc):        3931    Infected (Vacc):        69      Retrtieved (Vacc):      41      Dead (Vacc)     0
+ Healthy (NonVacc):     5818    Infected (NonVacc):     181     Retrtieved (NonVac):    141     Dead (NonVacc)  1
+
+Tick: 1325 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9720    Infected (All):         279     Retrtieved (All):       188     Dead (All):     1
+ Healthy (Vacc):        3925    Infected (Vacc):        75      Retrtieved (Vacc):      43      Dead (Vacc)     0
+ Healthy (NonVacc):     5795    Infected (NonVacc):     204     Retrtieved (NonVac):    145     Dead (NonVacc)  1
+
+Tick: 1350 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9713    Infected (All):         285     Retrtieved (All):       211     Dead (All):     2
+ Healthy (Vacc):        3924    Infected (Vacc):        76      Retrtieved (Vacc):      51      Dead (Vacc)     0
+ Healthy (NonVacc):     5789    Infected (NonVacc):     209     Retrtieved (NonVac):    160     Dead (NonVacc)  2
+
+Tick: 1375 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9703    Infected (All):         295     Retrtieved (All):       218     Dead (All):     2
+ Healthy (Vacc):        3916    Infected (Vacc):        84      Retrtieved (Vacc):      53      Dead (Vacc)     0
+ Healthy (NonVacc):     5787    Infected (NonVacc):     211     Retrtieved (NonVac):    165     Dead (NonVacc)  2
+
+Tick: 1400 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9693    Infected (All):         303     Retrtieved (All):       227     Dead (All):     4
+ Healthy (Vacc):        3912    Infected (Vacc):        88      Retrtieved (Vacc):      57      Dead (Vacc)     0
+ Healthy (NonVacc):     5781    Infected (NonVacc):     215     Retrtieved (NonVac):    170     Dead (NonVacc)  4
+
+Tick: 1425 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9690    Infected (All):         305     Retrtieved (All):       250     Dead (All):     5
+ Healthy (Vacc):        3911    Infected (Vacc):        89      Retrtieved (Vacc):      62      Dead (Vacc)     0
+ Healthy (NonVacc):     5779    Infected (NonVacc):     216     Retrtieved (NonVac):    188     Dead (NonVacc)  5
+
+Tick: 1450 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9690    Infected (All):         305     Retrtieved (All):       270     Dead (All):     5
+ Healthy (Vacc):        3910    Infected (Vacc):        90      Retrtieved (Vacc):      68      Dead (Vacc)     0
+ Healthy (NonVacc):     5780    Infected (NonVacc):     215     Retrtieved (NonVac):    202     Dead (NonVacc)  5
+
+Tick: 1475 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9675    Infected (All):         320     Retrtieved (All):       285     Dead (All):     5
+ Healthy (Vacc):        3898    Infected (Vacc):        102     Retrtieved (Vacc):      68      Dead (Vacc)     0
+ Healthy (NonVacc):     5777    Infected (NonVacc):     218     Retrtieved (NonVac):    217     Dead (NonVacc)  5
+
+Tick: 1500 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9680    Infected (All):         315     Retrtieved (All):       313     Dead (All):     5
+ Healthy (Vacc):        3904    Infected (Vacc):        96      Retrtieved (Vacc):      79      Dead (Vacc)     0
+ Healthy (NonVacc):     5776    Infected (NonVacc):     219     Retrtieved (NonVac):    234     Dead (NonVacc)  5
+
+Tick: 1525 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9668    Infected (All):         327     Retrtieved (All):       320     Dead (All):     5
+ Healthy (Vacc):        3901    Infected (Vacc):        99      Retrtieved (Vacc):      81      Dead (Vacc)     0
+ Healthy (NonVacc):     5767    Infected (NonVacc):     228     Retrtieved (NonVac):    239     Dead (NonVacc)  5
+
+Tick: 1550 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9664    Infected (All):         330     Retrtieved (All):       344     Dead (All):     6
+ Healthy (Vacc):        3897    Infected (Vacc):        103     Retrtieved (Vacc):      85      Dead (Vacc)     0
+ Healthy (NonVacc):     5767    Infected (NonVacc):     227     Retrtieved (NonVac):    259     Dead (NonVacc)  6
+
+Tick: 1575 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9654    Infected (All):         340     Retrtieved (All):       364     Dead (All):     6
+ Healthy (Vacc):        3896    Infected (Vacc):        104     Retrtieved (Vacc):      92      Dead (Vacc)     0
+ Healthy (NonVacc):     5758    Infected (NonVacc):     236     Retrtieved (NonVac):    272     Dead (NonVacc)  6
+
+Tick: 1600 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9634    Infected (All):         360     Retrtieved (All):       383     Dead (All):     6
+ Healthy (Vacc):        3888    Infected (Vacc):        112     Retrtieved (Vacc):      99      Dead (Vacc)     0
+ Healthy (NonVacc):     5746    Infected (NonVacc):     248     Retrtieved (NonVac):    284     Dead (NonVacc)  6
+
+Tick: 1625 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9625    Infected (All):         369     Retrtieved (All):       406     Dead (All):     6
+ Healthy (Vacc):        3886    Infected (Vacc):        114     Retrtieved (Vacc):      106     Dead (Vacc)     0
+ Healthy (NonVacc):     5739    Infected (NonVacc):     255     Retrtieved (NonVac):    300     Dead (NonVacc)  6
+
+Tick: 1650 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9619    Infected (All):         375     Retrtieved (All):       427     Dead (All):     6
+ Healthy (Vacc):        3880    Infected (Vacc):        120     Retrtieved (Vacc):      110     Dead (Vacc)     0
+ Healthy (NonVacc):     5739    Infected (NonVacc):     255     Retrtieved (NonVac):    317     Dead (NonVacc)  6
+
+Tick: 1675 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9609    Infected (All):         384     Retrtieved (All):       462     Dead (All):     7
+ Healthy (Vacc):        3875    Infected (Vacc):        125     Retrtieved (Vacc):      118     Dead (Vacc)     0
+ Healthy (NonVacc):     5734    Infected (NonVacc):     259     Retrtieved (NonVac):    344     Dead (NonVacc)  7
+
+Tick: 1700 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9607    Infected (All):         384     Retrtieved (All):       489     Dead (All):     9
+ Healthy (Vacc):        3877    Infected (Vacc):        123     Retrtieved (Vacc):      127     Dead (Vacc)     0
+ Healthy (NonVacc):     5730    Infected (NonVacc):     261     Retrtieved (NonVac):    362     Dead (NonVacc)  9
+
+Tick: 1725 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9590    Infected (All):         399     Retrtieved (All):       505     Dead (All):     11
+ Healthy (Vacc):        3873    Infected (Vacc):        127     Retrtieved (Vacc):      137     Dead (Vacc)     0
+ Healthy (NonVacc):     5717    Infected (NonVacc):     272     Retrtieved (NonVac):    368     Dead (NonVacc)  11
+
+Tick: 1750 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9575    Infected (All):         414     Retrtieved (All):       524     Dead (All):     11
+ Healthy (Vacc):        3874    Infected (Vacc):        126     Retrtieved (Vacc):      146     Dead (Vacc)     0
+ Healthy (NonVacc):     5701    Infected (NonVacc):     288     Retrtieved (NonVac):    378     Dead (NonVacc)  11
+
+Tick: 1775 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9563    Infected (All):         426     Retrtieved (All):       551     Dead (All):     11
+ Healthy (Vacc):        3869    Infected (Vacc):        131     Retrtieved (Vacc):      152     Dead (Vacc)     0
+ Healthy (NonVacc):     5694    Infected (NonVacc):     295     Retrtieved (NonVac):    399     Dead (NonVacc)  11
+
+Tick: 1800 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9558    Infected (All):         431     Retrtieved (All):       569     Dead (All):     11
+ Healthy (Vacc):        3866    Infected (Vacc):        134     Retrtieved (Vacc):      158     Dead (Vacc)     0
+ Healthy (NonVacc):     5692    Infected (NonVacc):     297     Retrtieved (NonVac):    411     Dead (NonVacc)  11
+
+Tick: 1825 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9552    Infected (All):         437     Retrtieved (All):       599     Dead (All):     11
+ Healthy (Vacc):        3867    Infected (Vacc):        133     Retrtieved (Vacc):      170     Dead (Vacc)     0
+ Healthy (NonVacc):     5685    Infected (NonVacc):     304     Retrtieved (NonVac):    429     Dead (NonVacc)  11
+
+Tick: 1850 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9538    Infected (All):         451     Retrtieved (All):       625     Dead (All):     11
+ Healthy (Vacc):        3858    Infected (Vacc):        142     Retrtieved (Vacc):      175     Dead (Vacc)     0
+ Healthy (NonVacc):     5680    Infected (NonVacc):     309     Retrtieved (NonVac):    450     Dead (NonVacc)  11
+
+Tick: 1875 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9519    Infected (All):         470     Retrtieved (All):       641     Dead (All):     11
+ Healthy (Vacc):        3852    Infected (Vacc):        148     Retrtieved (Vacc):      180     Dead (Vacc)     0
+ Healthy (NonVacc):     5667    Infected (NonVacc):     322     Retrtieved (NonVac):    461     Dead (NonVacc)  11
+
+Tick: 1900 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9503    Infected (All):         486     Retrtieved (All):       669     Dead (All):     11
+ Healthy (Vacc):        3847    Infected (Vacc):        153     Retrtieved (Vacc):      188     Dead (Vacc)     0
+ Healthy (NonVacc):     5656    Infected (NonVacc):     333     Retrtieved (NonVac):    481     Dead (NonVacc)  11
+
+Tick: 1925 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9489    Infected (All):         500     Retrtieved (All):       701     Dead (All):     11
+ Healthy (Vacc):        3843    Infected (Vacc):        157     Retrtieved (Vacc):      197     Dead (Vacc)     0
+ Healthy (NonVacc):     5646    Infected (NonVacc):     343     Retrtieved (NonVac):    504     Dead (NonVacc)  11
+
+Tick: 1950 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9487    Infected (All):         501     Retrtieved (All):       739     Dead (All):     12
+ Healthy (Vacc):        3842    Infected (Vacc):        158     Retrtieved (Vacc):      213     Dead (Vacc)     0
+ Healthy (NonVacc):     5645    Infected (NonVacc):     343     Retrtieved (NonVac):    526     Dead (NonVacc)  12
+
+Tick: 1975 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9475    Infected (All):         513     Retrtieved (All):       771     Dead (All):     12
+ Healthy (Vacc):        3836    Infected (Vacc):        164     Retrtieved (Vacc):      220     Dead (Vacc)     0
+ Healthy (NonVacc):     5639    Infected (NonVacc):     349     Retrtieved (NonVac):    551     Dead (NonVacc)  12
+
+Tick: 2000 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9458    Infected (All):         530     Retrtieved (All):       797     Dead (All):     12
+ Healthy (Vacc):        3832    Infected (Vacc):        168     Retrtieved (Vacc):      230     Dead (Vacc)     0
+ Healthy (NonVacc):     5626    Infected (NonVacc):     362     Retrtieved (NonVac):    567     Dead (NonVacc)  12
+
+Tick: 2025 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9458    Infected (All):         529     Retrtieved (All):       842     Dead (All):     13
+ Healthy (Vacc):        3824    Infected (Vacc):        176     Retrtieved (Vacc):      243     Dead (Vacc)     0
+ Healthy (NonVacc):     5634    Infected (NonVacc):     353     Retrtieved (NonVac):    599     Dead (NonVacc)  13
+
+Tick: 2050 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9440    Infected (All):         547     Retrtieved (All):       872     Dead (All):     13
+ Healthy (Vacc):        3815    Infected (Vacc):        185     Retrtieved (Vacc):      251     Dead (Vacc)     0
+ Healthy (NonVacc):     5625    Infected (NonVacc):     362     Retrtieved (NonVac):    621     Dead (NonVacc)  13
+
+Tick: 2075 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9415    Infected (All):         572     Retrtieved (All):       903     Dead (All):     13
+ Healthy (Vacc):        3811    Infected (Vacc):        189     Retrtieved (Vacc):      264     Dead (Vacc)     0
+ Healthy (NonVacc):     5604    Infected (NonVacc):     383     Retrtieved (NonVac):    639     Dead (NonVacc)  13
+
+Tick: 2100 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9403    Infected (All):         584     Retrtieved (All):       940     Dead (All):     13
+ Healthy (Vacc):        3807    Infected (Vacc):        193     Retrtieved (Vacc):      273     Dead (Vacc)     0
+ Healthy (NonVacc):     5596    Infected (NonVacc):     391     Retrtieved (NonVac):    667     Dead (NonVacc)  13
+
+Tick: 2125 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9387    Infected (All):         599     Retrtieved (All):       976     Dead (All):     14
+ Healthy (Vacc):        3805    Infected (Vacc):        195     Retrtieved (Vacc):      285     Dead (Vacc)     0
+ Healthy (NonVacc):     5582    Infected (NonVacc):     404     Retrtieved (NonVac):    691     Dead (NonVacc)  14
+
+Tick: 2150 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9361    Infected (All):         624     Retrtieved (All):       999     Dead (All):     15
+ Healthy (Vacc):        3798    Infected (Vacc):        202     Retrtieved (Vacc):      293     Dead (Vacc)     0
+ Healthy (NonVacc):     5563    Infected (NonVacc):     422     Retrtieved (NonVac):    706     Dead (NonVacc)  15
+
+Tick: 2175 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9340    Infected (All):         643     Retrtieved (All):       1030    Dead (All):     17
+ Healthy (Vacc):        3785    Infected (Vacc):        215     Retrtieved (Vacc):      303     Dead (Vacc)     0
+ Healthy (NonVacc):     5555    Infected (NonVacc):     428     Retrtieved (NonVac):    727     Dead (NonVacc)  17
+
+Tick: 2200 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9321    Infected (All):         662     Retrtieved (All):       1071    Dead (All):     17
+ Healthy (Vacc):        3781    Infected (Vacc):        219     Retrtieved (Vacc):      317     Dead (Vacc)     0
+ Healthy (NonVacc):     5540    Infected (NonVacc):     443     Retrtieved (NonVac):    754     Dead (NonVacc)  17
+
+Tick: 2225 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9301    Infected (All):         682     Retrtieved (All):       1106    Dead (All):     17
+ Healthy (Vacc):        3780    Infected (Vacc):        220     Retrtieved (Vacc):      328     Dead (Vacc)     0
+ Healthy (NonVacc):     5521    Infected (NonVacc):     462     Retrtieved (NonVac):    778     Dead (NonVacc)  17
+
+Tick: 2250 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9287    Infected (All):         695     Retrtieved (All):       1151    Dead (All):     18
+ Healthy (Vacc):        3774    Infected (Vacc):        226     Retrtieved (Vacc):      341     Dead (Vacc)     0
+ Healthy (NonVacc):     5513    Infected (NonVacc):     469     Retrtieved (NonVac):    810     Dead (NonVacc)  18
+
+Tick: 2275 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9270    Infected (All):         712     Retrtieved (All):       1196    Dead (All):     18
+ Healthy (Vacc):        3761    Infected (Vacc):        239     Retrtieved (Vacc):      355     Dead (Vacc)     0
+ Healthy (NonVacc):     5509    Infected (NonVacc):     473     Retrtieved (NonVac):    841     Dead (NonVacc)  18
+
+Tick: 2300 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9253    Infected (All):         728     Retrtieved (All):       1233    Dead (All):     19
+ Healthy (Vacc):        3756    Infected (Vacc):        244     Retrtieved (Vacc):      371     Dead (Vacc)     0
+ Healthy (NonVacc):     5497    Infected (NonVacc):     484     Retrtieved (NonVac):    862     Dead (NonVacc)  19
+
+Tick: 2325 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9223    Infected (All):         758     Retrtieved (All):       1280    Dead (All):     19
+ Healthy (Vacc):        3740    Infected (Vacc):        260     Retrtieved (Vacc):      385     Dead (Vacc)     0
+ Healthy (NonVacc):     5483    Infected (NonVacc):     498     Retrtieved (NonVac):    895     Dead (NonVacc)  19
+
+Tick: 2350 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9205    Infected (All):         776     Retrtieved (All):       1321    Dead (All):     19
+ Healthy (Vacc):        3731    Infected (Vacc):        269     Retrtieved (Vacc):      398     Dead (Vacc)     0
+ Healthy (NonVacc):     5474    Infected (NonVacc):     507     Retrtieved (NonVac):    923     Dead (NonVacc)  19
+
+Tick: 2375 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9193    Infected (All):         788     Retrtieved (All):       1369    Dead (All):     19
+ Healthy (Vacc):        3735    Infected (Vacc):        265     Retrtieved (Vacc):      422     Dead (Vacc)     0
+ Healthy (NonVacc):     5458    Infected (NonVacc):     523     Retrtieved (NonVac):    947     Dead (NonVacc)  19
+
+Tick: 2400 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9177    Infected (All):         802     Retrtieved (All):       1414    Dead (All):     21
+ Healthy (Vacc):        3728    Infected (Vacc):        272     Retrtieved (Vacc):      437     Dead (Vacc)     0
+ Healthy (NonVacc):     5449    Infected (NonVacc):     530     Retrtieved (NonVac):    977     Dead (NonVacc)  21
+
+Tick: 2425 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9163    Infected (All):         816     Retrtieved (All):       1468    Dead (All):     21
+ Healthy (Vacc):        3719    Infected (Vacc):        281     Retrtieved (Vacc):      453     Dead (Vacc)     0
+ Healthy (NonVacc):     5444    Infected (NonVacc):     535     Retrtieved (NonVac):    1015    Dead (NonVacc)  21
+
+Tick: 2450 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9160    Infected (All):         818     Retrtieved (All):       1518    Dead (All):     22
+ Healthy (Vacc):        3714    Infected (Vacc):        286     Retrtieved (Vacc):      466     Dead (Vacc)     0
+ Healthy (NonVacc):     5446    Infected (NonVacc):     532     Retrtieved (NonVac):    1052    Dead (NonVacc)  22
+
+Tick: 2475 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9131    Infected (All):         846     Retrtieved (All):       1568    Dead (All):     23
+ Healthy (Vacc):        3706    Infected (Vacc):        294     Retrtieved (Vacc):      480     Dead (Vacc)     0
+ Healthy (NonVacc):     5425    Infected (NonVacc):     552     Retrtieved (NonVac):    1088    Dead (NonVacc)  23
+
+Tick: 2500 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9110    Infected (All):         867     Retrtieved (All):       1619    Dead (All):     23
+ Healthy (Vacc):        3701    Infected (Vacc):        299     Retrtieved (Vacc):      496     Dead (Vacc)     0
+ Healthy (NonVacc):     5409    Infected (NonVacc):     568     Retrtieved (NonVac):    1123    Dead (NonVacc)  23
+
+Tick: 2525 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9074    Infected (All):         903     Retrtieved (All):       1669    Dead (All):     23
+ Healthy (Vacc):        3696    Infected (Vacc):        304     Retrtieved (Vacc):      518     Dead (Vacc)     0
+ Healthy (NonVacc):     5378    Infected (NonVacc):     599     Retrtieved (NonVac):    1151    Dead (NonVacc)  23
+
+Tick: 2550 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9077    Infected (All):         900     Retrtieved (All):       1731    Dead (All):     23
+ Healthy (Vacc):        3701    Infected (Vacc):        299     Retrtieved (Vacc):      538     Dead (Vacc)     0
+ Healthy (NonVacc):     5376    Infected (NonVacc):     601     Retrtieved (NonVac):    1193    Dead (NonVacc)  23
+
+Tick: 2575 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9064    Infected (All):         912     Retrtieved (All):       1784    Dead (All):     24
+ Healthy (Vacc):        3689    Infected (Vacc):        311     Retrtieved (Vacc):      550     Dead (Vacc)     0
+ Healthy (NonVacc):     5375    Infected (NonVacc):     601     Retrtieved (NonVac):    1234    Dead (NonVacc)  24
+
+Tick: 2600 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9043    Infected (All):         932     Retrtieved (All):       1841    Dead (All):     25
+ Healthy (Vacc):        3677    Infected (Vacc):        323     Retrtieved (Vacc):      567     Dead (Vacc)     0
+ Healthy (NonVacc):     5366    Infected (NonVacc):     609     Retrtieved (NonVac):    1274    Dead (NonVacc)  25
+
+Tick: 2625 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9038    Infected (All):         936     Retrtieved (All):       1901    Dead (All):     26
+ Healthy (Vacc):        3679    Infected (Vacc):        321     Retrtieved (Vacc):      594     Dead (Vacc)     0
+ Healthy (NonVacc):     5359    Infected (NonVacc):     615     Retrtieved (NonVac):    1307    Dead (NonVacc)  26
+
+Tick: 2650 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9024    Infected (All):         950     Retrtieved (All):       1961    Dead (All):     26
+ Healthy (Vacc):        3679    Infected (Vacc):        321     Retrtieved (Vacc):      619     Dead (Vacc)     0
+ Healthy (NonVacc):     5345    Infected (NonVacc):     629     Retrtieved (NonVac):    1342    Dead (NonVacc)  26
+
+Tick: 2675 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         9023    Infected (All):         950     Retrtieved (All):       2031    Dead (All):     27
+ Healthy (Vacc):        3687    Infected (Vacc):        313     Retrtieved (Vacc):      645     Dead (Vacc)     0
+ Healthy (NonVacc):     5336    Infected (NonVacc):     637     Retrtieved (NonVac):    1386    Dead (NonVacc)  27
+
+Tick: 2700 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8999    Infected (All):         973     Retrtieved (All):       2090    Dead (All):     28
+ Healthy (Vacc):        3679    Infected (Vacc):        321     Retrtieved (Vacc):      667     Dead (Vacc)     0
+ Healthy (NonVacc):     5320    Infected (NonVacc):     652     Retrtieved (NonVac):    1423    Dead (NonVacc)  28
+
+Tick: 2725 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8983    Infected (All):         989     Retrtieved (All):       2152    Dead (All):     28
+ Healthy (Vacc):        3671    Infected (Vacc):        329     Retrtieved (Vacc):      688     Dead (Vacc)     0
+ Healthy (NonVacc):     5312    Infected (NonVacc):     660     Retrtieved (NonVac):    1464    Dead (NonVacc)  28
+
+Tick: 2750 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8974    Infected (All):         998     Retrtieved (All):       2214    Dead (All):     28
+ Healthy (Vacc):        3664    Infected (Vacc):        336     Retrtieved (Vacc):      710     Dead (Vacc)     0
+ Healthy (NonVacc):     5310    Infected (NonVacc):     662     Retrtieved (NonVac):    1504    Dead (NonVacc)  28
+
+Tick: 2775 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8938    Infected (All):         1033    Retrtieved (All):       2276    Dead (All):     29
+ Healthy (Vacc):        3657    Infected (Vacc):        343     Retrtieved (Vacc):      734     Dead (Vacc)     0
+ Healthy (NonVacc):     5281    Infected (NonVacc):     690     Retrtieved (NonVac):    1542    Dead (NonVacc)  29
+
+Tick: 2800 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8906    Infected (All):         1064    Retrtieved (All):       2332    Dead (All):     30
+ Healthy (Vacc):        3654    Infected (Vacc):        346     Retrtieved (Vacc):      752     Dead (Vacc)     0
+ Healthy (NonVacc):     5252    Infected (NonVacc):     718     Retrtieved (NonVac):    1580    Dead (NonVacc)  30
+
+Tick: 2825 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8892    Infected (All):         1077    Retrtieved (All):       2409    Dead (All):     31
+ Healthy (Vacc):        3651    Infected (Vacc):        349     Retrtieved (Vacc):      775     Dead (Vacc)     0
+ Healthy (NonVacc):     5241    Infected (NonVacc):     728     Retrtieved (NonVac):    1634    Dead (NonVacc)  31
+
+Tick: 2850 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8889    Infected (All):         1080    Retrtieved (All):       2481    Dead (All):     31
+ Healthy (Vacc):        3648    Infected (Vacc):        352     Retrtieved (Vacc):      797     Dead (Vacc)     0
+ Healthy (NonVacc):     5241    Infected (NonVacc):     728     Retrtieved (NonVac):    1684    Dead (NonVacc)  31
+
+Tick: 2875 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8867    Infected (All):         1102    Retrtieved (All):       2568    Dead (All):     31
+ Healthy (Vacc):        3631    Infected (Vacc):        369     Retrtieved (Vacc):      822     Dead (Vacc)     0
+ Healthy (NonVacc):     5236    Infected (NonVacc):     733     Retrtieved (NonVac):    1746    Dead (NonVacc)  31
+
+Tick: 2900 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8857    Infected (All):         1109    Retrtieved (All):       2622    Dead (All):     34
+ Healthy (Vacc):        3620    Infected (Vacc):        380     Retrtieved (Vacc):      837     Dead (Vacc)     0
+ Healthy (NonVacc):     5237    Infected (NonVacc):     729     Retrtieved (NonVac):    1785    Dead (NonVacc)  34
+
+Tick: 2925 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8840    Infected (All):         1126    Retrtieved (All):       2692    Dead (All):     34
+ Healthy (Vacc):        3617    Infected (Vacc):        383     Retrtieved (Vacc):      862     Dead (Vacc)     0
+ Healthy (NonVacc):     5223    Infected (NonVacc):     743     Retrtieved (NonVac):    1830    Dead (NonVacc)  34
+
+Tick: 2950 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8826    Infected (All):         1140    Retrtieved (All):       2769    Dead (All):     34
+ Healthy (Vacc):        3617    Infected (Vacc):        383     Retrtieved (Vacc):      892     Dead (Vacc)     0
+ Healthy (NonVacc):     5209    Infected (NonVacc):     757     Retrtieved (NonVac):    1877    Dead (NonVacc)  34
+
+Tick: 2975 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8809    Infected (All):         1157    Retrtieved (All):       2832    Dead (All):     34
+ Healthy (Vacc):        3616    Infected (Vacc):        384     Retrtieved (Vacc):      918     Dead (Vacc)     0
+ Healthy (NonVacc):     5193    Infected (NonVacc):     773     Retrtieved (NonVac):    1914    Dead (NonVacc)  34
+
+Tick: 3000 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8784    Infected (All):         1181    Retrtieved (All):       2902    Dead (All):     35
+ Healthy (Vacc):        3604    Infected (Vacc):        396     Retrtieved (Vacc):      940     Dead (Vacc)     0
+ Healthy (NonVacc):     5180    Infected (NonVacc):     785     Retrtieved (NonVac):    1962    Dead (NonVacc)  35
+
+Tick: 3025 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8766    Infected (All):         1198    Retrtieved (All):       2975    Dead (All):     36
+ Healthy (Vacc):        3592    Infected (Vacc):        408     Retrtieved (Vacc):      959     Dead (Vacc)     0
+ Healthy (NonVacc):     5174    Infected (NonVacc):     790     Retrtieved (NonVac):    2016    Dead (NonVacc)  36
+
+Tick: 3050 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8758    Infected (All):         1206    Retrtieved (All):       3060    Dead (All):     36
+ Healthy (Vacc):        3588    Infected (Vacc):        412     Retrtieved (Vacc):      991     Dead (Vacc)     0
+ Healthy (NonVacc):     5170    Infected (NonVacc):     794     Retrtieved (NonVac):    2069    Dead (NonVacc)  36
+
+Tick: 3075 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8705    Infected (All):         1255    Retrtieved (All):       3129    Dead (All):     40
+ Healthy (Vacc):        3568    Infected (Vacc):        432     Retrtieved (Vacc):      1017    Dead (Vacc)     0
+ Healthy (NonVacc):     5137    Infected (NonVacc):     823     Retrtieved (NonVac):    2112    Dead (NonVacc)  40
+
+Tick: 3100 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8683    Infected (All):         1277    Retrtieved (All):       3205    Dead (All):     40
+ Healthy (Vacc):        3558    Infected (Vacc):        442     Retrtieved (Vacc):      1046    Dead (Vacc)     0
+ Healthy (NonVacc):     5125    Infected (NonVacc):     835     Retrtieved (NonVac):    2159    Dead (NonVacc)  40
+
+Tick: 3125 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8689    Infected (All):         1271    Retrtieved (All):       3300    Dead (All):     40
+ Healthy (Vacc):        3562    Infected (Vacc):        438     Retrtieved (Vacc):      1077    Dead (Vacc)     0
+ Healthy (NonVacc):     5127    Infected (NonVacc):     833     Retrtieved (NonVac):    2223    Dead (NonVacc)  40
+
+Tick: 3150 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8682    Infected (All):         1276    Retrtieved (All):       3385    Dead (All):     42
+ Healthy (Vacc):        3545    Infected (Vacc):        455     Retrtieved (Vacc):      1098    Dead (Vacc)     0
+ Healthy (NonVacc):     5137    Infected (NonVacc):     821     Retrtieved (NonVac):    2287    Dead (NonVacc)  42
+
+Tick: 3175 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8676    Infected (All):         1280    Retrtieved (All):       3473    Dead (All):     44
+ Healthy (Vacc):        3543    Infected (Vacc):        457     Retrtieved (Vacc):      1124    Dead (Vacc)     0
+ Healthy (NonVacc):     5133    Infected (NonVacc):     823     Retrtieved (NonVac):    2349    Dead (NonVacc)  44
+
+Tick: 3200 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8661    Infected (All):         1295    Retrtieved (All):       3552    Dead (All):     44
+ Healthy (Vacc):        3547    Infected (Vacc):        453     Retrtieved (Vacc):      1149    Dead (Vacc)     0
+ Healthy (NonVacc):     5114    Infected (NonVacc):     842     Retrtieved (NonVac):    2403    Dead (NonVacc)  44
+
+Tick: 3225 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8662    Infected (All):         1294    Retrtieved (All):       3660    Dead (All):     44
+ Healthy (Vacc):        3551    Infected (Vacc):        449     Retrtieved (Vacc):      1193    Dead (Vacc)     0
+ Healthy (NonVacc):     5111    Infected (NonVacc):     845     Retrtieved (NonVac):    2467    Dead (NonVacc)  44
+
+Tick: 3250 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8595    Infected (All):         1359    Retrtieved (All):       3723    Dead (All):     46
+ Healthy (Vacc):        3540    Infected (Vacc):        460     Retrtieved (Vacc):      1220    Dead (Vacc)     0
+ Healthy (NonVacc):     5055    Infected (NonVacc):     899     Retrtieved (NonVac):    2503    Dead (NonVacc)  46
+
+Tick: 3275 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8573    Infected (All):         1380    Retrtieved (All):       3805    Dead (All):     47
+ Healthy (Vacc):        3536    Infected (Vacc):        464     Retrtieved (Vacc):      1245    Dead (Vacc)     0
+ Healthy (NonVacc):     5037    Infected (NonVacc):     916     Retrtieved (NonVac):    2560    Dead (NonVacc)  47
+
+Tick: 3300 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8563    Infected (All):         1389    Retrtieved (All):       3896    Dead (All):     48
+ Healthy (Vacc):        3531    Infected (Vacc):        469     Retrtieved (Vacc):      1275    Dead (Vacc)     0
+ Healthy (NonVacc):     5032    Infected (NonVacc):     920     Retrtieved (NonVac):    2621    Dead (NonVacc)  48
+
+Tick: 3325 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8554    Infected (All):         1396    Retrtieved (All):       3978    Dead (All):     50
+ Healthy (Vacc):        3530    Infected (Vacc):        470     Retrtieved (Vacc):      1303    Dead (Vacc)     0
+ Healthy (NonVacc):     5024    Infected (NonVacc):     926     Retrtieved (NonVac):    2675    Dead (NonVacc)  50
+
+Tick: 3350 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8548    Infected (All):         1401    Retrtieved (All):       4073    Dead (All):     51
+ Healthy (Vacc):        3540    Infected (Vacc):        460     Retrtieved (Vacc):      1336    Dead (Vacc)     0
+ Healthy (NonVacc):     5008    Infected (NonVacc):     941     Retrtieved (NonVac):    2737    Dead (NonVacc)  51
+
+Tick: 3375 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8517    Infected (All):         1431    Retrtieved (All):       4161    Dead (All):     52
+ Healthy (Vacc):        3540    Infected (Vacc):        460     Retrtieved (Vacc):      1368    Dead (Vacc)     0
+ Healthy (NonVacc):     4977    Infected (NonVacc):     971     Retrtieved (NonVac):    2793    Dead (NonVacc)  52
+
+Tick: 3400 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8500    Infected (All):         1446    Retrtieved (All):       4255    Dead (All):     54
+ Healthy (Vacc):        3546    Infected (Vacc):        454     Retrtieved (Vacc):      1408    Dead (Vacc)     0
+ Healthy (NonVacc):     4954    Infected (NonVacc):     992     Retrtieved (NonVac):    2847    Dead (NonVacc)  54
+
+Tick: 3425 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8504    Infected (All):         1439    Retrtieved (All):       4372    Dead (All):     57
+ Healthy (Vacc):        3548    Infected (Vacc):        452     Retrtieved (Vacc):      1451    Dead (Vacc)     0
+ Healthy (NonVacc):     4956    Infected (NonVacc):     987     Retrtieved (NonVac):    2921    Dead (NonVacc)  57
+
+Tick: 3450 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8478    Infected (All):         1464    Retrtieved (All):       4468    Dead (All):     58
+ Healthy (Vacc):        3542    Infected (Vacc):        458     Retrtieved (Vacc):      1488    Dead (Vacc)     0
+ Healthy (NonVacc):     4936    Infected (NonVacc):     1006    Retrtieved (NonVac):    2980    Dead (NonVacc)  58
+
+Tick: 3475 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8449    Infected (All):         1492    Retrtieved (All):       4555    Dead (All):     59
+ Healthy (Vacc):        3521    Infected (Vacc):        479     Retrtieved (Vacc):      1515    Dead (Vacc)     0
+ Healthy (NonVacc):     4928    Infected (NonVacc):     1013    Retrtieved (NonVac):    3040    Dead (NonVacc)  59
+
+Tick: 3500 | Popul: 10000 Vacc: 4000 NonVacc: 6000 | Days: 25 Sleep: 10
+ Healthy (All):         8420    Infected (All):         1519    Retrtieved (All):       4647    Dead (All):     61
+ Healthy (Vacc):        3519    Infected (Vacc):        481     Retrtieved (Vacc):      1554    Dead (Vacc)     0
+ Healthy (NonVacc):     4901    Infected (NonVacc):     1038    Retrtieved (NonVac):    3093    Dead (NonVacc)  61

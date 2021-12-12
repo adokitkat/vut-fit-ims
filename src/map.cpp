@@ -234,13 +234,13 @@ std::vector<std::string> seed4(std::vector<std::string> mapChars,
                               int64_t size = MAX_SIZE, 
                               float _seed = 40000.0f, 
                               int people = 1000000,
-                              int vaxd_percent = 40,
-                              int par_vaxd_percent = 20,
+                              float vaxd_percent = 40,
+                              float par_vaxd_percent = 20,
                               float infected_percent = 0.4f) 
 {
 
-  int vaxd = (people/100)*vaxd_percent;
-  int par_vaxd = (people/100)*par_vaxd_percent;
+  int vaxd = static_cast<int>((people/100)*vaxd_percent);
+  int par_vaxd = static_cast<int>((people/100)*par_vaxd_percent);
   int infected = static_cast<int>((people/100)*infected_percent);
 
   int max = size * size;
@@ -458,17 +458,23 @@ namespace Map {
     std::cout << std::endl;
   }
 
-  int moveCells(std::vector<std::vector<Cell>>& map) 
+  int moveCells(std::vector<std::vector<Cell>>& map, int stop_for) 
   {
     int64_t h = map.size(),
             w = map[0].size();
     //float rand;
     
+    if (tick % day > stop_for)
+    {
+      return 0;
+    }
+
     for (int64_t i = 0; i < h; ++i)
     {
       for (int64_t j = 0; j < w; ++j)
       {
         if (!map[i][j].active) { continue; }
+        else if (map[i][j].status == Status::DEAD) { continue; }
 
         // Pohyb
         std::vector<std::tuple<int,int>> possible_moves;
@@ -562,6 +568,8 @@ namespace Map {
                   map[i][j].infectious = false;
                   ++healthy;
                   ++v_healthy;
+                  ++retrieved;
+                  ++v_retrieved;
                 }
                 else // Pokracovanie infikacie
                 {
@@ -598,6 +606,7 @@ namespace Map {
                     ++healthy;
                     ++n_healthy;
                     ++retrieved;
+                    ++n_retrieved;
                   }
                 }
                 else // Pokracovanie infikacie
@@ -719,12 +728,11 @@ namespace Map {
     if (tick % log_period == 0) 
     {
       
-      std::cout << "Tick: " << tick << " Popul: " << population << " Vacc: " << vaccinated << " NonVacc: " << nonvaccinated << NEWLINE // << "\tActive: " << healthy+infected
-      
-        << " Healthy (All):\t\t" << healthy << "\tInfected (All):\t\t" << infected << "\tDead (All):\t" << dead << NEWLINE //"\tAffected (All):\t\t" << burning+burned << NEWLINE
-        << " Healthy (Vacc):\t" << v_healthy << "\tInfected (Vacc):\t" << v_infected << "\tDead (Vacc)\t" << v_dead << NEWLINE //"\tAffected (Tree):\t" << burning_tree+burned_tree << NEWLINE
-        << " Healthy (NonVacc):\t" << n_healthy << "\tInfected (NonVacc):\t" << n_infected << "\tDead (NonVacc)\t" << n_dead << NEWLINE //"\tAffected (Brush):\t" << burning_brush+burned_brush << NEWLINE
-        << " Retrtieved (All): " << retrieved << NEWLINE
+      std::cout << "Tick: " << tick << " | Map size: " << map_size << " | Population: " << population << " | Vacc: " << vaccinated << " NonVacc: " << nonvaccinated << " | Infected (start): " << infected_start_percent << "% | Days: " << day << " Sleep: " << sleep_for_ticks << NEWLINE // << "\tActive: " << healthy+infected
+       
+        << " Healthy (All):\t\t" << healthy << "\tInfected (All):\t\t" << infected << "\tRetrtieved (All): \t" << retrieved << "\tDead (All):\t" << dead << NEWLINE //"\tAffected (All):\t\t" << burning+burned << NEWLINE
+        << " Healthy (Vacc):\t" << v_healthy << "\tInfected (Vacc):\t" << v_infected << "\tRetrtieved (Vacc): \t" << v_retrieved  << "\tDead (Vacc)\t" << v_dead << NEWLINE //"\tAffected (Tree):\t" << burning_tree+burned_tree << NEWLINE
+        << " Healthy (NonVacc):\t" << n_healthy << "\tInfected (NonVacc):\t" << n_infected << "\tRetrtieved (NonVac): \t" << n_retrieved  << "\tDead (NonVacc)\t" << n_dead << NEWLINE //"\tAffected (Brush):\t" << burning_brush+burned_brush << NEWLINE
         << std::endl;
       /*
       if (logging)
@@ -751,17 +759,17 @@ namespace Map {
     v_healthy = 0;
     v_infected = 0;
     v_dead = 0;
-    v_retrieved = 0;
+    //v_retrieved = 0;
 
     p_healthy = 0;
     p_infected = 0;
     p_dead = 0;
-    p_retrieved = 0;
+    //p_retrieved = 0;
 
     n_healthy = 0;
     n_infected = 0;
     n_dead = 0;
-    n_retrieved = 0;
+    //n_retrieved = 0;
 
     return 0;
   }

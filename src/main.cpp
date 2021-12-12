@@ -141,7 +141,7 @@ void display()
   // Update status of every cell
   Map::updateMapStatus(newMap);
   // Move cells on the map
-  Map::moveCells(newMap);
+  Map::moveCells(newMap, sleep_for_ticks);
   map = newMap;
 
   for (auto [i, line] : enumerate(map))
@@ -151,7 +151,7 @@ void display()
       switch(c.status) {
 
         case Status::NONE:
-          glColor3f(1.0f, 1.0f, 1.0f);
+          glColor3f(0.2f, 0.2f, 0.2f);
           break;
         
         case Status::HEALTHY:
@@ -164,8 +164,8 @@ void display()
             glColor3f(0.2f, 0.8f, 0.2f);
           }
           else if (c.type == CellType::NonVaccinated) {
-            // dark green 
-            glColor3f(0.4f, 0.8f, 0.4f);
+            // dark
+            glColor3f(0.6f, 0.6f, 1.0f);
           }
           break;
 
@@ -180,7 +180,7 @@ void display()
           }
           else if (c.type == CellType::NonVaccinated) {
             // dark
-            glColor3f(0.8f, 0.4f, 0.4f);
+            glColor3f(0.2f, 0.2f, 1.0f);
           }
           break;
 
@@ -221,9 +221,19 @@ int main (int argc, char *argv[])
 
   if (show_help) { showHelp(); exit(EXIT_SUCCESS); }
 
-  srand(time(NULL)); // initialize random function
+  int64_t rand_seed;
+  if (r_seed != 0)
+  {
+    rand_seed = r_seed; // initialize random function
+  }
+  else
+  {
+    rand_seed = time(NULL); // initialize random function
+  }
+  srand(rand_seed); 
+
   std::vector<std::string> mapChars;
-  mapChars = seed4(mapChars, 958, 40000.0f, population, 40, 0, 0.05f);
+  mapChars = seed4(mapChars, map_size, 40000.0f, population, vaccinated_start_percent, 0, infected_start_percent);
   //mapChars = seed4(mapChars, 479, 'N', 47000.0f, 11025); 
   //mapChars = seed4(mapChars, 958 , 'N', 38000.0f, 22050); 
   //mapChars = seed4(mapChars, MAX_SIZE, 'N', 46000.0f, 500000); 
