@@ -26,41 +26,15 @@
     #define NEWLINE '\n' // Avoid std::endl because of proper buffering and flushing
 #endif
 
-enum struct Wind
-{
-  None,
-  N, NW, W, SW, S, SE, E, NE
-};
-
-// Global var
-Wind wind { Wind::None };
-
-void parseWindDir(std::string wind_dir)
-{
-
-  if (wind_dir != "")
-  {
-    if      (wind_dir == "N"  or wind_dir == "n")  { wind = Wind::N;}
-    else if (wind_dir == "NW" or wind_dir == "nw") { wind = Wind::NW;}
-    else if (wind_dir == "W"  or wind_dir == "w")  { wind = Wind::W;}
-    else if (wind_dir == "SW" or wind_dir == "sw") { wind = Wind::SW;}
-    else if (wind_dir == "S"  or wind_dir == "s")  { wind = Wind::S;}
-    else if (wind_dir == "SE" or wind_dir == "se") { wind = Wind::SE;}
-    else if (wind_dir == "E"  or wind_dir == "e")  { wind = Wind::E;}
-    else if (wind_dir == "NE" or wind_dir == "ne") { wind = Wind::NE;}
-
-  }
-}
-
 // Global variabiable map for callback GLUT function
 int64_t MAX_SIZE {1000},
         h {0},
         w {0},
         radius_global {2}, // Radius of spread
-        k_global {1}, // Wind speed
-        big_wind_global {3}, // Wind speed treshold
-        tree_burning_time {162},
-        brush_burning_time {100};
+        map_size {400},
+        day {25}, // day ticks
+        sleep_for_ticks {10}, //night ticks
+        r_seed {0};
 
 // Mouse events
 bool  leftMouseButtonDown { false },
@@ -85,23 +59,38 @@ void mouse(int button, int state, int x, int y)
 // Logging
 bool logging {false};
 std::ofstream map_state_log;
+float vaccinated_start_percent {40.0},
+      partially_vaccinated_start_percent {0},
+      infected_start_percent {0.05};
 int64_t log_period {25},
         tick {0},
         active {0},
-        tree {0},
-        brush {0},
+
+        population {10000},
         
-        not_burning {0},
-        burning {0},
-        burned {0},
+        vaccinated {0},
+        partially_vaccinated {0},
+        nonvaccinated {0},
 
-        not_burning_tree {0},
-        burning_tree {0},
-        burned_tree {0},
+        healthy {0},
+        infected {0},
+        dead {0},
+        retrieved {0},
 
-        not_burning_brush {0},
-        burning_brush {0},
-        burned_brush {0};
+        v_healthy {0},
+        v_infected {0},
+        v_dead {0},
+        v_retrieved {0},
+
+        p_healthy {0},
+        p_infected {0},
+        p_dead {0},
+        p_retrieved {0},
+
+        n_healthy {0},
+        n_infected {0},
+        n_dead {0},
+        n_retrieved {0};
 
 std::ofstream initLog(std::string filename)
 {
@@ -152,10 +141,7 @@ void showHelp()
     << "Flags:" << NEWLINE
     << "  -h, --help\t" << "Show help" << NEWLINE
     << "  -g, --gui\t"  << "GUI version" << NEWLINE
-    << "  -x X -y Y\t" << "Set point of fire origin" << NEWLINE
-    << "  -i X, --intensity X\t" << "Fire intensity [1, 2, 3]" << NEWLINE
-    << "  -l, --log\t" << "Enable logging" << NEWLINE
-    << "  -w X, --wind X\t" << "Wind direction [None, N, NW, W, SW, S, SE, E, NE]" << std::endl
+    << "  -l, --log\t"  << "Enable logging to a output.txt file" << std::endl;
   ;
 }
 
@@ -166,35 +152,41 @@ void parseArgs(int& argc,
               bool& show_help, 
               bool& load_map, 
               int64_t& x, 
-              int64_t& y, 
-              std::string& wind_dir)
+              int64_t& y)
 {  
   const struct option long_options[] =
   {
-    {"gui",       no_argument,       nullptr, 'g'},
-    {"wind",      no_argument,       nullptr, 'w'},
-    {"intensity", no_argument,       nullptr, 'i'},
-    {"log",       no_argument,       nullptr, 'l'},
-    {"help",      no_argument,       nullptr, 'h'},
-    {nullptr,     no_argument,       nullptr, 0}
+    {"gui",            no_argument, nullptr, 'g'},
+    {"log",            no_argument, nullptr, 'l'},
+    {"help",           no_argument, nullptr, 'h'},
+    {"map-size",       no_argument, nullptr, 'm'},
+    {"population",     no_argument, nullptr, 'n'},
+    {"vaccinated",     no_argument, nullptr, 'v'},
+    {"part-vaccinated",no_argument, nullptr, 'p'},
+    {"infected",       no_argument, nullptr, 'i'},
+    {"day",            no_argument, nullptr, 'd'},
+    {"sleep",          no_argument, nullptr, 's'},
+    {"seed",           no_argument, nullptr, 'z'},
+    {nullptr,          no_argument, nullptr, 0}
   };
 
   int arg {0};
   // Load arguments
   while (arg != -1)
   {
-    arg = getopt_long(argc, argv, "xyghwil", long_options, nullptr);
+    arg = getopt_long(argc, argv, "xyglhmnvpidsz", long_options, nullptr);
     switch (arg)
     {
       case 'x':
-
         if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
         { 
           std::istringstream iss (argv[optind++]);
           int64_t val;
 
           if (iss >> val)
-            { x = val; }
+          { 
+            x = val;
+          }
         }
         else
         {
@@ -211,7 +203,9 @@ void parseArgs(int& argc,
           int64_t val;
 
           if (iss >> val)
-            { y = val; }
+          { 
+            y = val;
+          }
         }
         else
         {
@@ -220,31 +214,146 @@ void parseArgs(int& argc,
         }
         break;
 
-      case 'w':
-        if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
-        { 
-          std::istringstream iss (argv[optind++]);
-          std::string val;
-
-          if (iss >> val)
-            { wind_dir = val; }
-        }
-        else
-        {
-          std::cerr << "Please specify wind direction." << std::endl;
-          std::exit(EXIT_FAILURE);
-        }
-        break;
-
-       case 'i':
+      case 'm':
         if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
         { 
           std::istringstream iss (argv[optind++]);
           int64_t val;
 
           if (iss >> val)
-            { k_global = val; }
+          { 
+            map_size = val;
+          }
         }
+        else
+        {
+          std::cerr << "Please specify map size." << std::endl;
+          std::exit(EXIT_FAILURE);
+        }
+        break;
+
+      case 'n':
+        if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
+        { 
+          std::istringstream iss (argv[optind++]);
+          int64_t val;
+
+          if (iss >> val)
+          { 
+            population = val; 
+          }
+        }
+        else
+        {
+          std::cerr << "Please specify population number." << std::endl;
+          std::exit(EXIT_FAILURE);
+        }
+        break;
+
+      case 'v':
+        if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
+        { 
+          std::istringstream iss (argv[optind++]);
+          float val;
+
+          if (iss >> val)
+          { 
+            vaccinated_start_percent = val;
+          }
+        }
+        else
+        {
+          std::cerr << "Please specify number of vaccinated people." << std::endl;
+          std::exit(EXIT_FAILURE);
+        }
+        break;
+        
+      case 'p':
+        if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
+        { 
+          std::istringstream iss (argv[optind++]);
+          float val;
+
+          if (iss >> val)
+          { 
+            partially_vaccinated_start_percent = val;
+          }
+
+        }
+        else
+        {
+          std::cerr << "Please specify number of partially vaccinated people." << std::endl;
+          std::exit(EXIT_FAILURE);
+        }
+        break;
+
+      case 'i':
+        if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
+        { 
+          std::istringstream iss (argv[optind++]);
+          float val;
+
+          if (iss >> val)
+          { 
+            infected_start_percent = val;
+          }
+        }
+        else
+        {
+          std::cerr << "Please specify number of vaccinated people." << std::endl;
+          std::exit(EXIT_FAILURE);
+        }
+        break;
+
+       case 'd':
+          if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
+          { 
+            std::istringstream iss (argv[optind++]);
+            int64_t val;
+
+            if (iss >> val)
+              { day = val; }
+          }
+          else
+          {
+            std::cerr << "Please specify number of partially vaccinated people." << std::endl;
+            std::exit(EXIT_FAILURE);
+          }
+          break;
+
+      case 's':
+          if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
+          { 
+            std::istringstream iss (argv[optind++]);
+            int64_t val;
+
+            if (iss >> val)
+              { sleep_for_ticks = val; }
+          }
+          else
+          {
+            std::cerr << "Please specify number of partially vaccinated people." << std::endl;
+            std::exit(EXIT_FAILURE);
+          }
+          break;
+
+      case 'z':
+          if (!optarg and argv[optind] != nullptr and argv[optind][0] != '-')
+          { 
+            std::istringstream iss (argv[optind++]);
+            int64_t val;
+
+            if (iss >> val)
+            { 
+              r_seed = val;
+            }
+          }
+          else
+          {
+            std::cerr << "Please specify number of partially vaccinated people." << std::endl;
+            std::exit(EXIT_FAILURE);
+          }
+          break;
 
       case 'g':
         gui = true;
@@ -263,4 +372,5 @@ void parseArgs(int& argc,
         break;
     }
   }
+
 }

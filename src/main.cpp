@@ -1,19 +1,14 @@
 #include <GL/glut.h>
-//#include "cell_blob.hpp"
 #include "map.cpp"
 
-//TODO: nahodnejsia zapalnost
 
 using namespace std::chrono_literals;
 
 int updateCell(const std::vector<std::vector<Cell>>& map, 
               std::vector<std::vector<Cell>>& newMap, 
               int64_t i,
-              int64_t j, 
-              Wind wDirection = Wind::None, 
-              int64_t radius = 2, 
-              int64_t k = 1, 
-              int64_t big_wind = 3)
+              int64_t j,
+              int64_t radius = 2)
 {
   int64_t h = map.size(),
           w = map[0].size();
@@ -21,64 +16,10 @@ int updateCell(const std::vector<std::vector<Cell>>& map,
   int64_t a {-1*radius}, b {1*radius},
           c {-1*radius}, d {1*radius};
 
-  switch(wDirection) {
-    case Wind::N:
-      //if (k != 1)
-      //  { a += 1; } // 1*a-(k-a)
-      a += 1; b += 1*k;
-      c += 0; d += 0;
-      if (k >= big_wind) { a = radius; }
-      break;
-
-    case Wind::NW:
-      a += 1;  b += 1*k;
-      c += 1;  d += 1*k;
-      if (k >= big_wind) { a = radius; c = radius; }
-      break;
-
-    case Wind::W:
-      a += 0;  b += 0;
-      c += 1;  d += 1*k;
-      if (k >= big_wind) { c = radius; }
-      break;
-
-    case Wind::SW:
-      a += -1*k; b += -1;
-      c += 1;    d += 1*k;
-      if (k >= big_wind) { b = -radius; c = radius; }
-      break;
-    
-    case Wind::S:
-      a += -1*k; b += -1;
-      c += 0;    d += 0;
-      if (k >= big_wind) { b = -radius; }
-      break;
-
-    case Wind::SE:
-      a += -1*k; b += -1;
-      c += -1*k; d += -1;
-      if (k >= big_wind) { b = -radius; d = -radius; }
-      break;
-
-    case Wind::E:
-      a += 0;    b += 0;
-      c += -1*k; d += -1;
-      if (k >= big_wind) { d = -radius; }
-      break;
-
-    case Wind::NE:
-      a += 1;    b += 1*k;
-      c += -1*k; d += -1;
-      if (k >= big_wind) { a = radius; d = -radius; }
-      break;
-    
-    default:
-      break;
-  }
-
   int64_t distance {1};
   int64_t abs_x {0},
           abs_y {0};
+  int64_t chance {0};
 
   for (auto x = (i + a); x <= (i + b); ++x) 
   {
@@ -103,80 +44,72 @@ int updateCell(const std::vector<std::vector<Cell>>& map,
 
           switch (map[x][y].status) // Neighbor status
           {
-            case Status::NOT_BURNING:
-              //map[i][j] ; // Current Cell
+            case Status::HEALTHY: // Neighbor status
+            case Status::DEAD: 
+            case Status::NONE:
               break;
-            
-            case Status::BURNING:
-              
-              switch(map[i][j].type) { // My type
-                case CellType::Tree:  // My type == Tree
-              
-                  if (newMap[i][j].status == Status::NOT_BURNING) // My status
-                  {
-                    switch (map[x][y].type) // Neighbor type
-                    {
-                      case CellType::Tree:
-                        newMap[i][j].flammability += std::pow(0.1, distance); // TODO: range
-                        break;
-                      
-                      case CellType::Brush:
-                        newMap[i][j].flammability += std::pow(0.08, distance); // TODO: range
-                        break;
-                      
-                      default:
-                        break;
-                    }
-                  } 
-                  break;
 
-                case CellType::Brush: // My type == Brush
-                  if (newMap[i][j].status == Status::NOT_BURNING) // My status
+            case Status::INFECTED: // Neighbor status
+
+              if (map[x][y].infectious == false) { break; }
+
+              switch(map[i][j].type) { // Current cell type
+                
+                case CellType::Vaccinated:  // Current cell type
+                  if (newMap[i][j].status == Status::HEALTHY) // Current cell status
                   {
-                    switch (map[x][y].type) // Neighbor type
+                    chance = static_cast<int>(std::pow(0.02, distance)*100);
+                    if(chance > rand() % 100)
                     {
-                      case CellType::Tree:
-                        newMap[i][j].flammability += std::pow(0.1, distance); // TODO: range
-                        break;
-                        
-                      case CellType::Brush:
-                        newMap[i][j].flammability += std::pow(0.12, distance); // TODO: range
-                        break;
-                        
-                      default:
-                        break;
+                      newMap[i][j].status = Status::INFECTED;
                     }
+
+                  }
+
+                case CellType::PartiallyVaccinated:
+                  if (newMap[i][j].status == Status::HEALTHY) // Current cell status
+                  {
+                    chance = static_cast<int>(std::pow(0.1, distance)*100);
+                    if(chance > rand() % 100)
+                    {
+                      newMap[i][j].status = Status::INFECTED;
+                    }
+
                   }
                   break;
 
-                  default:
-                    break;
-              }
-              
-              // 
+                case CellType::NonVaccinated:
+                  if (newMap[i][j].status == Status::HEALTHY) // Current cell status
+                  {
+                    chance = static_cast<int>(std::pow(0.3, distance)*100);
+                    if(chance > rand() % 100)
+                    {
+                      newMap[i][j].status = Status::INFECTED;
+                    }
 
-              break;
+                  }
+                  break;
 
-            case Status::BURNED:
-              break;
-            
+                default:
+                  break;
+            }
             default:
               break;
           }
         }
-        //if(newMap[x][y].flammability > 0.3) { std::cout << map[x][y].flammability << " " << newMap[x][y].flammability << NEWLINE; }
+
       }
     }
   }
+
   return 0;
 }
 
 void updateCellAll(std::vector<std::vector<Cell>>&map, std::vector<std::vector<Cell>>& newMap)
 {
-  //#pragma omp parallel for
   for (int64_t i = 0; i < h; ++i) {
     for (int64_t j = 0; j < w; ++j) {
-      updateCell(map, newMap, i, j, wind, radius_global, k_global, big_wind_global);
+      updateCell(map, newMap, i, j, radius_global);
     }
   }
 }
@@ -193,13 +126,15 @@ void display()
 
   // Mouse interaction
   if (leftMouseButtonDown) {
-    Map::igniteCellRadius(map, mouseXPos, mouseYPos, 3);
+    Map::infectCellRadius(map, mouseXPos, mouseYPos, 10);
   }
 
   // Update data of every cell on map
   updateCellAll(map, newMap);
   // Update status of every cell
   Map::updateMapStatus(newMap);
+  // Move cells on the map
+  Map::moveCells(newMap, sleep_for_ticks);
   map = newMap;
 
   for (auto [i, line] : enumerate(map))
@@ -207,32 +142,47 @@ void display()
     for (auto [j, c]: enumerate(line))
     {
       switch(c.status) {
-        case Status::NOT_BURNING:
-          if (c.type == CellType::Tree) {
+
+        case Status::NONE:
+        //background
+          glColor3f(0.2f, 0.2f, 0.2f);
+          break;
+        
+        case Status::HEALTHY:
+          if (c.type == CellType::Vaccinated) {
             // light green
             glColor3f(0.0f, 0.8f, 0.0f);
           }
-          else if (c.type == CellType::Brush) {
-            // dark green 
-            glColor3f(0.4f, 0.8f, 0.4f);
+          else if (c.type == CellType::PartiallyVaccinated) {
+            // darker green 
+            glColor3f(0.2f, 0.8f, 0.2f);
           }
-          else if (c.type == CellType::Dirt) {
-            // brown
-            glColor3f(0.7f, 0.6f, 0.4f);
+          else if (c.type == CellType::NonVaccinated) {
+            // dark
+            glColor3f(0.6f, 0.6f, 1.0f);
           }
-          
           break;
 
-        case Status::BURNING:
-          // red
-          glColor3f(0.8f, 0.0f, 0.0f);
+        case Status::INFECTED:
+          if (c.type == CellType::Vaccinated) {
+            // light 
+            glColor3f(0.8f, 0.0f, 0.0f);
+          }
+          else if (c.type == CellType::PartiallyVaccinated) {
+            // darker
+            glColor3f(0.8f, 0.2f, 0.2f);
+          }
+          else if (c.type == CellType::NonVaccinated) {
+            // dark
+            glColor3f(0.2f, 0.2f, 1.0f);
+          }
           break;
 
-        case Status::BURNED:
+        case Status::DEAD:
           // gray
           glColor3f(0.1f, 0.1f, 0.1f);
           break;
-        
+
         default:
           break;
       }
@@ -248,7 +198,6 @@ void display()
 
   glutSwapBuffers();
   glutPostRedisplay();
-  //std::this_thread::sleep_for(1ms);
 }
 
 int main (int argc, char *argv[])
@@ -257,49 +206,34 @@ int main (int argc, char *argv[])
   bool  gui {false},
         show_help {false},
         load_map {false};
-  int64_t wildfire_start_x {-1},
-          wildfire_start_y {-1};
-  std::string wind_dir = "";
+  int64_t infection_start_x {-1},
+          infection_start_y {-1};
   
   // Parses arguments, fills variables with values
-  parseArgs(argc, argv, gui, show_help, load_map, wildfire_start_x, wildfire_start_y, wind_dir);
-
-  parseWindDir(wind_dir);
+  parseArgs(argc, argv, gui, show_help, load_map, infection_start_x, infection_start_y);
 
   if (show_help) { showHelp(); exit(EXIT_SUCCESS); }
 
-  srand(time(NULL)); // initialize random function
-  std::vector<std::string> mapChars;
-  mapChars = seed(mapChars, MAX_SIZE, '@', 40000.0f);
-  mapChars = seed(mapChars, MAX_SIZE, 'Y', 52000.0f); // seed (40000,55000)
-  //TODO: sem hodit po generovani nejake ohnisko v danom bode and watch the world burn
+  int64_t rand_seed;
+  if (r_seed != 0)
+  {
+    rand_seed = r_seed; 
+  }
+  else
+  {
+    rand_seed = time(NULL); 
+  }
+  srand(rand_seed); // initialize random function
 
-  if (wildfire_start_x == -1) { wildfire_start_x = MAX_SIZE/2; }
-  if (wildfire_start_y == -1) { wildfire_start_y = MAX_SIZE/2; }
+  std::vector<std::string> mapChars;
+  mapChars = seed4(mapChars, map_size, 40000.0f, population, vaccinated_start_percent, 0, infected_start_percent);
 
   h = mapChars.size();
   w = mapChars[0].size();
   
-  // Start wildfire
-  for (auto x = (wildfire_start_x - 2); x <= (wildfire_start_x + 2); ++x) 
-  {
-    for (auto y = (wildfire_start_y - 2); y <= (wildfire_start_y + 2); ++y)
-    {
-      if (x >= 0 and x < h and y >= 0 and y < w) {
-        mapChars[x][y] = 'X';
-      }
-      else 
-      {
-        std::cerr << "Starting coorinates out of bounds! Select numbers in range 0-999." << std::endl;
-        exit(EXIT_FAILURE);
-      }
-    }
-  }
-
-  
   if (logging)
   {
-    map_state_log = initLog("output.txt");
+    map_state_log = initLog("output.csv");
     std::cout << "Log message every " << log_period << " ticks." << std::endl;  
   }
 
@@ -309,26 +243,23 @@ int main (int argc, char *argv[])
 
   if (gui) {
     glutInit(&argc, argv);
-    //glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH);
     glutInitWindowPosition(0, 0);
     glutInitWindowSize(MAX_SIZE, MAX_SIZE);
-    glutCreateWindow("IMS - Wildfire simulation - xmlkvy00, xmudry01");
+    glutCreateWindow("IMS - Covid epidemic vaccination simulator - xmlkvy00, xmudry01");
     glutDisplayFunc(display);
     glutMouseFunc(mouse);
     glutMainLoop();
   }
   else {
-    //bool running {false};
     while (true)
     {
-      // Print the map
-      Map::printMap(map);
       // Update data of every cell on map
       updateCellAll(map, newMap);
       // Update status of every cell
       Map::updateMapStatus(newMap);
+      // Move cells on the map
+      Map::moveCells(newMap, sleep_for_ticks);
       map = newMap;
-      //std::this_thread::sleep_for(1s);
     }
   }
   exit(EXIT_SUCCESS);
